@@ -1,0 +1,140 @@
+.blog {
+  min-width: 60%;
+  min-height: 1em;
+}
+
+.blogs {
+  margin: 0;
+}
+
+.article {
+  position: relative;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
+  padding: 0.5em;
+  margin-bottom: 1em;
+  text-align: left;
+  height: 10em;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.article:hover {
+  transform: scale(1.02, 1.02);
+
+}
+
+.cover {
+  user-select: none;
+  margin: 0em;
+  position: absolute;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cover:hover {
+  transform: scale(1.1, 1.1) rotate(2deg);
+  cursor: pointer;
+}
+
+.title {
+  position: absolute;
+  left: 15em;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.title:hover {
+  transform: scale(1.02, 1.02);
+  cursor: pointer;
+  border-bottom: 1px solid #000000;
+}
+
+.summarize {
+  position: absolute;
+  left: 14em;
+  margin-top: 2.5em;
+  height: 5.7em;
+  right: 0.8em;
+  /* background-color: aqua; */
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-indent: 2em;
+}
+
+.time {
+  position: absolute;
+  margin-top: 9em;
+}
+
+.author {
+  position: absolute;
+  margin-top: 9em;
+  left: 13em;
+}
+
+.type {
+  position: absolute;
+  margin-top: 8.9em;
+  left: 21em;
+}
+
+.type_content {
+  padding-bottom: 0.02em;
+}
+
+.type_content:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #000000;
+}
+
+.type_icon {
+  width: 0.8em !important;
+}
+
+.tag {
+  position: absolute;
+  margin-top: 9em;
+  left: 26.5em;
+}
+
+.tag_name {
+  transition: all 0.6s;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  padding-bottom: 0.15em;
+}
+
+.tag_name:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #000000;
+}
+
+.tag_icon {
+  width: 0.8em !important;
+}
+
+.comments {
+  position: absolute;
+  margin-top: 9em;
+  right: 4em;
+}
+
+.views {
+  position: absolute;
+  margin-top: 9em;
+  right: 1em;
+}
+
+.page {
+  text-align: right;
+}
+
+.btn-prev {
+  background-color: rgba(9, 2, 4, 0) !important;
+}
+
+.btn-next {
+  background-color: rgba(9, 2, 4, 0) !important;
+}
+
+.number {
+  background-color: rgba(9, 2, 4, 0) !important;
+}

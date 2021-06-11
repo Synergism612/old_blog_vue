@@ -1,15 +1,29 @@
 {
   "name": "blog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "serve -s dist"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "animate.css": "^4.1.1",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.1",
+    "github-markdown-css": "^4.0.0",
+    "markdown-it": "^12.0.6",
+    "mavon-editor": "^2.9.1",
+    "moment": "^2.29.1",
     "vue": "^2.6.11",
+    "vue-particles": "^1.0.9",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },
@@ -22,6 +36,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "vue-particles": "^1.0.9",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

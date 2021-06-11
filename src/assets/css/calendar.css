@@ -1,0 +1,29 @@
+.calendar {
+  position: relative;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
+  padding: 0.8em;
+  margin-bottom: 1em;
+  text-align: center;
+  height: 100%;
+}
+.calendar_el {
+  background-color: rgba(9, 2, 4, 0) !important;
+}
+.el-button--mini {
+  background-color: rgba(9, 2, 4, 0) !important;
+}
+.el-calendar-day {
+  width: 2em !important;
+  height: 2em !important;
+  margin: auto;
+}
+.is-selected {
+  background-color: rgba(192, 192, 192, 0.3) !important;
+}
+.is-today {
+  color: #0e75ca !important;
+}
+.el-calendar-day:hover {
+  background-color: rgba(192, 192, 192, 0.3) !important;
+}
