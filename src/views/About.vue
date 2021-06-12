@@ -27,7 +27,6 @@
                   <div class="about_top">
                     <el-tabs v-model="activeName" @tab-click="handleClick">
                       <el-tab-pane label="关于博客" name="aboutindex">
-                        <el-divider></el-divider>
                         <div class="about" v-if="aboutindex_show">
                           <transition
                             appear
@@ -109,7 +108,6 @@
                         </div>
                       </el-tab-pane>
                       <el-tab-pane label="关于作者" name="aboutme">
-                        <el-divider></el-divider>
                         <div class="about" v-if="aboutme_show">
                           <transition
                             appear
