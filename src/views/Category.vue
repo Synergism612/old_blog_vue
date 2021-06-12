@@ -7,10 +7,7 @@
       <el-container>
         <el-header class="header">
           <el-col :span="24">
-            <transition
-              appear
-              appear-active-class="animate__animated animate__zoomIn"
-            >
+            <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
                   <el-breadcrumb-item :to="{ path: '/blog/index' }">
@@ -62,10 +59,7 @@
                           </i>
                         </div>
                         <div class="type">
-                          <font-awesome-icon
-                            :icon="['fas', 'folder']"
-                            class="type_icon"
-                          />
+                          <font-awesome-icon :icon="['fas', 'folder']" class="type_icon" />
                           <span
                             class="type_content"
                             @click="typeSearch(blog.typeList[0].content)"
@@ -73,16 +67,11 @@
                           >
                         </div>
                         <div class="tag">
-                          <font-awesome-icon
-                            :icon="['fas', 'tag']"
-                            class="tag_icon"
-                          />
+                          <font-awesome-icon :icon="['fas', 'tag']" class="tag_icon" />
                           <span v-for="tag in blog.tagList" :key="tag.id">
-                            <span
-                              class="tag_name"
-                              @click="tagSearch(tag.name)"
-                              >{{ tag.name }}</span
-                            >
+                            <span class="tag_name" @click="tagSearch(tag.name)">{{
+                              tag.name
+                            }}</span>
                           </span>
                         </div>
                         <div class="comments">
@@ -116,10 +105,7 @@
             </el-col>
             <el-col :xs="0" :sm="8" :md="8" :span="8">
               <div class="and">
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="search">
                     <div class="search_title">搜索</div>
                     <div class="search_content">
@@ -139,10 +125,7 @@
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="classify">
                     <div class="classify_title">分类导航</div>
                     <div class="classify_content">
@@ -159,10 +142,7 @@
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="tags">
                     <div class="tags_title">标签导航</div>
                     <div class="tags_content">
@@ -189,26 +169,25 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Backtop from "../components/Backtop";
-import Model from "../model/categoryModel";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Backtop from '../components/Backtop';
+import Model from '../model/categoryModel';
 
 export default {
-  
   components: { Header, Footer, Backtop },
   data() {
     return {
-      fit: "scale-down",
+      fit: 'scale-down',
       blog_show: true,
-      search: "",
+      search: '',
 
       // 分页数据
       currentPage: 1,
       pageSize: 10,
 
       //封装数据
-      pageData: {},
+      pageData: {}
     };
   },
   methods: {
@@ -217,42 +196,37 @@ export default {
       var searchContent = _this.search;
       this.blog_show = false;
       _this.axios
-        .get("/blog/search", {
+        .get('/blog/search', {
           params: {
-            searchContent: searchContent,
-          },
+            searchContent: searchContent
+          }
         })
         .then((res) => {
           if (res.data.searchArticleList.length == 0) {
             this.pageData.blogs = null;
             this.pageData.total = 0;
             this.$notify({
-              title: "搜索失败",
-              message: "没有搜索到关于“" + this.search + "”的文章",
-              type: "warning",
-              offset: 100,
+              title: '搜索失败',
+              message: '没有搜索到关于“' + this.search + '”的文章',
+              type: 'warning',
+              offset: 100
             });
           } else {
             this.pageData.blogs = res.data.searchArticleList;
             this.pageData.total = res.data.total;
-            if (this.search == "") {
+            if (this.search == '') {
               this.$notify({
-                title: "搜索成功",
-                message: "为您搜索全部文章" + this.pageData.total + "篇",
-                type: "success",
-                offset: 100,
+                title: '搜索成功',
+                message: '为您搜索全部文章' + this.pageData.total + '篇',
+                type: 'success',
+                offset: 100
               });
             } else {
               this.$notify({
-                title: "搜索成功",
-                message:
-                  "为您搜索到有关“" +
-                  this.search +
-                  "”的文章" +
-                  this.pageData.total +
-                  "篇",
-                type: "success",
-                offset: 100,
+                title: '搜索成功',
+                message: '为您搜索到有关“' + this.search + '”的文章' + this.pageData.total + '篇',
+                type: 'success',
+                offset: 100
               });
             }
           }
@@ -262,10 +236,10 @@ export default {
           err;
           this.pageData.blogs = null;
           this.$notify({
-            title: "搜索失败",
-            message: "没有搜索到关于“" + this.search + "”的文章",
-            type: "warning",
-            offset: 100,
+            title: '搜索失败',
+            message: '没有搜索到关于“' + this.search + '”的文章',
+            type: 'warning',
+            offset: 100
           });
         });
     },
@@ -274,33 +248,28 @@ export default {
       this.blog_show = false;
       const _this = this;
       _this.axios
-        .get("/blog/search/type", {
+        .get('/blog/search/type', {
           params: {
-            typeContent: typeContent,
-          },
+            typeContent: typeContent
+          }
         })
         .then((res) => {
           this.pageData.blogs = res.data.searchArticleList;
           this.pageData.total = res.data.total;
           this.$notify({
-            title: "搜索成功",
-            message:
-              "为您搜索到分类为“" +
-              typeContent +
-              "”的文章" +
-              this.pageData.total +
-              "篇",
-            type: "success",
-            offset: 100,
+            title: '搜索成功',
+            message: '为您搜索到分类为“' + typeContent + '”的文章' + this.pageData.total + '篇',
+            type: 'success',
+            offset: 100
           });
           this.blog_show = true;
         })
         .catch((err) => {
           err;
           this.$notify({
-            title: "警告",
-            message: "没有相关",
-            type: "warning",
+            title: '警告',
+            message: '没有相关',
+            type: 'warning'
           });
         });
     },
@@ -309,33 +278,28 @@ export default {
       this.blog_show = false;
       const _this = this;
       _this.axios
-        .get("/blog/search/tag", {
+        .get('/blog/search/tag', {
           params: {
-            tagName: tagName,
-          },
+            tagName: tagName
+          }
         })
         .then((res) => {
           this.pageData.blogs = res.data.searchArticleList;
           this.pageData.total = res.data.total;
           this.$notify({
-            title: "搜索成功",
-            message:
-              "为您搜索到标签为“" +
-              tagName +
-              "”的文章" +
-              this.pageData.total +
-              "篇",
-            type: "success",
-            offset: 100,
+            title: '搜索成功',
+            message: '为您搜索到标签为“' + tagName + '”的文章' + this.pageData.total + '篇',
+            type: 'success',
+            offset: 100
           });
           this.blog_show = true;
         })
         .catch((err) => {
           err;
           this.$notify({
-            title: "警告",
-            message: "没有相关",
-            type: "warning",
+            title: '警告',
+            message: '没有相关',
+            type: 'warning'
           });
         });
     },
@@ -343,11 +307,11 @@ export default {
     page(currentPage, pageSize) {
       const _this = this;
       _this.axios
-        .get("/blog/category", {
+        .get('/blog/category', {
           params: {
             currentPage: currentPage,
-            pageSize: pageSize,
-          },
+            pageSize: pageSize
+          }
         })
         .then(({ data }) => {
           this.pageData = new Model(data);
@@ -355,29 +319,29 @@ export default {
         .catch((err) => {
           console.error(err);
         });
-    },
+    }
   },
   created() {
     this.blog_show = false;
     if (
       this.$router.currentRoute.params.search_class != null &&
-      this.$router.currentRoute.params.search_class != "" &&
+      this.$router.currentRoute.params.search_class != '' &&
       this.$router.currentRoute.params.search_content != null &&
-      this.$router.currentRoute.params.search_content != ""
+      this.$router.currentRoute.params.search_content != ''
     ) {
       var search_class = this.$router.currentRoute.params.search_class;
       var search_content = this.$router.currentRoute.params.search_content;
-      if (search_class == "type") {
+      if (search_class == 'type') {
         this.page(1, this.pageSize);
         this.typeSearch(search_content);
         this.blog_show = true;
       }
-      if (search_class == "tag") {
+      if (search_class == 'tag') {
         this.page(1, this.pageSize);
         this.tagSearch(search_content);
         this.blog_show = true;
       }
-      if (search_class == "search") {
+      if (search_class == 'search') {
         this.page(1, this.pageSize);
         this.search = search_content;
         this.query();
@@ -388,7 +352,7 @@ export default {
       this.page(1, this.pageSize);
       this.blog_show = true;
     }
-  },
+  }
 };
 </script>
 

@@ -7,10 +7,7 @@
       <el-container>
         <el-header class="header">
           <el-col :span="24">
-            <transition
-              appear
-              appear-active-class="animate__animated animate__zoomIn"
-            >
+            <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
                   <el-breadcrumb-item :to="{ path: '/blog/index' }">
@@ -34,7 +31,7 @@
                   <div class="timeline_title">
                     <h1>时光轴 —— 记录生活点点滴滴</h1>
                   </div>
-                  
+
                   <el-timeline>
                     <el-timeline-item
                       v-for="timeline in pageData.timelines"
@@ -59,45 +56,44 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Backtop from "../components/Backtop";
-import Model from "../model/timelineModel";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Backtop from '../components/Backtop';
+import Model from '../model/timelineModel';
 
 export default {
-  
   components: { Header, Footer, Backtop },
   data() {
     return {
       //封装数据
-      pageData: {},
+      pageData: {}
     };
   },
   methods: {
     timeline() {
       const _this = this;
       _this.axios
-        .get("/blog/timeline")
+        .get('/blog/timeline')
         .then(({ data }) => {
           this.pageData = new Model(data);
         })
         .catch((err) => {
           console.error(err);
         });
-    },
+    }
   },
   created() {
     this.pageData = new Model();
     this.timeline();
-  },
+  }
 };
 </script>
 
 <style scoped>
-.timeline_title{
+.timeline_title {
   margin: 2em;
 }
-.timeline_content{
+.timeline_content {
   text-align: left;
 }
 </style>

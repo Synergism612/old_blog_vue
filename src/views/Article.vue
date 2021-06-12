@@ -7,10 +7,7 @@
       <el-container>
         <el-header class="header">
           <el-col :span="24">
-            <transition
-              appear
-              appear-active-class="animate__animated animate__zoomIn"
-            >
+            <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
                   <el-breadcrumb-item :to="{ path: '/blog/index' }">
@@ -30,10 +27,7 @@
         <el-main>
           <el-row :gutter="20">
             <el-col :xs="24" :sm="16" :md="16" :span="16">
-              <transition
-                appear
-                appear-active-class="animate__animated animate__zoomIn"
-              >
+              <transition appear appear-active-class="animate__animated animate__zoomIn">
                 <div class="details">
                   <div class="details_title">
                     <b>{{ pageData.blog.title }}</b>
@@ -45,54 +39,31 @@
                     <i class="el-icon-s-custom details_author">
                       {{ pageData.blog.author }}
                     </i>
-                    <font-awesome-icon
-                      :icon="['fas', 'folder']"
-                      class="type_icon"
-                    />
+                    <font-awesome-icon :icon="['fas', 'folder']" class="type_icon" />
                     <span
                       class="type_content details_type"
-                      @click="
-                        searchTagAndType(
-                          'type',
-                          pageData.blog.typeList[0].content
-                        )
-                      "
+                      @click="searchTagAndType('type', pageData.blog.typeList[0].content)"
                     >
                       <!-- 因为,子组件create之时, props里的数据还没有读取, 此时渲染引擎监测到数据的绑定, 
                     去寻找数据, 就会报错. 很快的组件初始化到了mount阶段,此时已经可以读取到props了,
                     所以通过绑定系统,把数据渲染出来了 -->
-                      {{
-                        pageData.blog.typeList
-                          ? pageData.blog.typeList[0].content
-                          : ""
-                      }}
+                      {{ pageData.blog.typeList ? pageData.blog.typeList[0].content : '' }}
                     </span>
-                    <font-awesome-icon
-                      :icon="['fas', 'tag']"
-                      class="tag_icon"
-                    />
+                    <font-awesome-icon :icon="['fas', 'tag']" class="tag_icon" />
                     <span v-for="tag in pageData.blog.tagList" :key="tag.id">
-                      <span
-                        class="tag_name"
-                        @click="searchTagAndType('tag', tag.name)"
-                        >{{ tag.name }}</span
-                      >
+                      <span class="tag_name" @click="searchTagAndType('tag', tag.name)">{{
+                        tag.name
+                      }}</span>
                     </span>
                   </div>
                   <el-divider></el-divider>
-                  <div
-                    class="markdown-body details_md"
-                    v-html="pageData.blog.content"
-                  ></div>
+                  <div class="markdown-body details_md" v-html="pageData.blog.content"></div>
                 </div>
               </transition>
             </el-col>
             <el-col :xs="0" :sm="8" :md="8" :span="8">
               <div class="and">
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="search">
                     <div class="search_title">搜索文章</div>
                     <div class="search_content">
@@ -112,10 +83,7 @@
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="comment">
                     <div class="comment_title">评论本文</div>
                     <div class="comment_new">
@@ -129,30 +97,18 @@
                         class="comment_new_content"
                       ></el-input>
                       <div class="comment_new_link">
-                        <el-link target="_blank" @click="newComment()"
-                          >提交评论</el-link
-                        >
+                        <el-link target="_blank" @click="newComment()">提交评论</el-link>
                       </div>
                     </div>
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="comment">
                     评论区
-                    <div
-                      v-for="comment in pageData.comments"
-                      :key="comment.id"
-                      class="comment_for"
-                    >
+                    <div v-for="comment in pageData.comments" :key="comment.id" class="comment_for">
                       <div class="comment_icon">
-                        <el-avatar
-                          :size="50"
-                          :src="comment.authorIcon"
-                        ></el-avatar>
+                        <el-avatar :size="50" :src="comment.authorIcon"></el-avatar>
                       </div>
                       <div class="comment_name">
                         {{ comment.authorName }}
@@ -185,23 +141,22 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Backtop from "../components/Backtop";
-import Model from "../model/articleModel";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Backtop from '../components/Backtop';
+import Model from '../model/articleModel';
 
-import "github-markdown-css/github-markdown.css";
+import 'github-markdown-css/github-markdown.css';
 
 export default {
-  
   components: { Header, Footer, Backtop },
   data() {
     return {
-      commentNew: "",
-      searchContent: "",
+      commentNew: '',
+      searchContent: '',
       comment_show: true,
       //封装数据
-      pageData: {},
+      pageData: {}
     };
   },
   methods: {
@@ -209,10 +164,10 @@ export default {
       this.comments = {};
       const _this = this;
       _this.axios
-        .get("/blog/article/" + this.$router.currentRoute.params.id)
+        .get('/blog/article/' + this.$router.currentRoute.params.id)
         .then(({ data }) => {
           // 解析md文件
-          var MardownIt = require("markdown-it");
+          var MardownIt = require('markdown-it');
           var md = new MardownIt();
           var result = md.render(data.blogArticleDetail.content);
           this.pageData = new Model(data, result);
@@ -226,8 +181,8 @@ export default {
         name: `Category`,
         params: {
           search_class: search_class,
-          search_content: search_content,
-        },
+          search_content: search_content
+        }
       });
     },
     search(search_class) {
@@ -235,61 +190,61 @@ export default {
         name: `Category`,
         params: {
           search_class: search_class,
-          search_content: this.searchContent,
-        },
+          search_content: this.searchContent
+        }
       });
     },
     newComment() {
       if (this.$store.getters.getUser.phone) {
-        if (this.commentNew != "" && this.commentNew != null) {
+        if (this.commentNew != '' && this.commentNew != null) {
           const _this = this;
           _this.axios
-            .post("add/comment", {
+            .post('add/comment', {
               userPhone: this.$store.getters.getUser.phone,
               content: this.commentNew,
               articleId: this.pageData.blog.id,
-              time: new Date(),
+              time: new Date()
             })
             .then((res) => {
               this.$notify({
                 title: res.data,
-                message: "您的评论已添加",
-                type: "success",
-                offset: 100,
+                message: '您的评论已添加',
+                type: 'success',
+                offset: 100
               });
-              this.commentNew = "";
+              this.commentNew = '';
               this.detail();
             })
             .catch((err) => {
               this.$notify({
-                title: "操作失败",
+                title: '操作失败',
                 message: err.message,
-                type: "warning",
-                offset: 100,
+                type: 'warning',
+                offset: 100
               });
             });
         } else {
           this.$notify({
-            title: "操作失败",
-            message: "请填入内容",
-            type: "warning",
-            offset: 100,
+            title: '操作失败',
+            message: '请填入内容',
+            type: 'warning',
+            offset: 100
           });
         }
       } else {
         this.$notify({
-          title: "操作失败",
-          message: "请先登录",
-          type: "warning",
-          offset: 100,
+          title: '操作失败',
+          message: '请先登录',
+          type: 'warning',
+          offset: 100
         });
       }
-    },
+    }
   },
   created() {
     this.pageData = new Model();
     this.detail();
-  },
+  }
 };
 </script>
 

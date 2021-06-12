@@ -35,12 +35,10 @@ export default new Vuex.Store({
   },
   getters: {
     //get方法，也可以不写
-    getUser: state =>{
+    getUser: state => {
       return state.userInfo
     }
   },
-  actions: {
-  },
-  modules: {
-  }
+  actions: {},
+  modules: {}
 })

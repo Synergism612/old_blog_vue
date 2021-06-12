@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div class="background"></div>
     <Header></Header>
     <Backtop></Backtop>
@@ -25,10 +25,7 @@
       <el-container>
         <el-header class="header">
           <el-col :span="24">
-            <transition
-              appear
-              appear-active-class="animate__animated animate__zoomIn"
-            >
+            <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="notice">
                 <i class="el-icon-s-comment"></i>
                 {{ pageData.aboutIndex.indexNotic }}
@@ -75,30 +72,20 @@
                         </i>
                       </div>
                       <div class="type">
-                        <font-awesome-icon
-                          :icon="['fas', 'folder']"
-                          class="type_icon"
-                        />
+                        <font-awesome-icon :icon="['fas', 'folder']" class="type_icon" />
                         <span
                           class="type_content"
-                          @click="
-                            searchTagAndType('type', blog.typeList[0].content)
-                          "
+                          @click="searchTagAndType('type', blog.typeList[0].content)"
                         >
                           {{ blog.typeList[0].content }}
                         </span>
                       </div>
                       <div class="tag">
-                        <font-awesome-icon
-                          :icon="['fas', 'tag']"
-                          class="tag_icon"
-                        />
+                        <font-awesome-icon :icon="['fas', 'tag']" class="tag_icon" />
                         <span v-for="tag in blog.tagList" :key="tag.id">
-                          <span
-                            class="tag_name"
-                            @click="searchTagAndType('tag', tag.name)"
-                            >{{ tag.name }}</span
-                          >
+                          <span class="tag_name" @click="searchTagAndType('tag', tag.name)">{{
+                            tag.name
+                          }}</span>
                         </span>
                       </div>
                       <div class="comments">
@@ -131,17 +118,10 @@
             </el-col>
             <el-col :xs="0" :sm="8" :md="8" :span="8">
               <div class="and">
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__jackInTheBox"
-                >
+                <transition appear appear-active-class="animate__animated animate__jackInTheBox">
                   <div class="aboutme">
                     <div class="abltme_icon">
-                      <el-avatar
-                        :size="150"
-                        :src="pageData.aboutme.icon"
-                        :fit="fit"
-                      ></el-avatar>
+                      <el-avatar :size="150" :src="pageData.aboutme.icon" :fit="fit"></el-avatar>
                     </div>
                     <div class="aboutme_name">
                       <b>{{ pageData.aboutme.name }}</b>
@@ -151,11 +131,7 @@
                     </div>
                     <el-divider></el-divider>
                     <div class="aboutme_app">
-                      <font-awesome-icon
-                        :icon="['fab', 'qq']"
-                        size="2x"
-                        class="aboutme_app_icon"
-                      />
+                      <font-awesome-icon :icon="['fab', 'qq']" size="2x" class="aboutme_app_icon" />
                       <font-awesome-icon
                         :icon="['fas', 'comment']"
                         size="2x"
@@ -175,32 +151,18 @@
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="calendar">
-                    <el-calendar v-model="calendar" class="calendar_el">
-                    </el-calendar>
+                    <el-calendar v-model="calendar" class="calendar_el"> </el-calendar>
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="comment">
                     最新评论
-                    <div
-                      v-for="comment in pageData.comments"
-                      :key="comment.id"
-                      class="comment_for"
-                    >
+                    <div v-for="comment in pageData.comments" :key="comment.id" class="comment_for">
                       <div class="comment_icon">
-                        <el-avatar
-                          :size="50"
-                          :src="comment.authorIcon"
-                        ></el-avatar>
+                        <el-avatar :size="50" :src="comment.authorIcon"></el-avatar>
                       </div>
                       <div class="comment_name">
                         {{ comment.authorName }}
@@ -223,10 +185,7 @@
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="version">
                     <div class="version_title">版本说明</div>
                     <div class="block">
@@ -246,10 +205,7 @@
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="aboutIndex">
                     <div class="aboutIndex_title">网站信息</div>
                     <div class="aboutIndex_content">
@@ -292,10 +248,7 @@
                   </div>
                 </transition>
 
-                <transition
-                  appear
-                  appear-active-class="animate__animated animate__zoomIn"
-                >
+                <transition appear appear-active-class="animate__animated animate__zoomIn">
                   <div class="friendlylink">
                     <div class="friendlylink_title">友情链接</div>
 
@@ -323,17 +276,16 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Backtop from "../components/Backtop";
-import Model from "../model/indexModel";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Backtop from '../components/Backtop';
+import Model from '../model/indexModel';
 
 export default {
-  
   components: { Header, Footer, Backtop },
   data() {
     return {
-      fit: "scale-down",
+      fit: 'scale-down',
       calendar: new Date(),
       blog_show: true,
 
@@ -342,18 +294,18 @@ export default {
       pageSize: 10,
 
       //封装数据
-      pageData: {},
+      pageData: {}
     };
   },
   methods: {
     page(currentPage, pageSize) {
       const _this = this;
       _this.axios
-        .get("/blog/index", {
+        .get('/blog/index', {
           params: {
             currentPage: currentPage,
-            pageSize: pageSize,
-          },
+            pageSize: pageSize
+          }
         })
         .then(({ data }) => {
           this.pageData = new Model(data);
@@ -368,15 +320,15 @@ export default {
         name: `Category`,
         params: {
           search_class: search_class,
-          search_content: search_content,
-        },
+          search_content: search_content
+        }
       });
-    },
+    }
   },
   created() {
     this.pageData = new Model();
     this.page(1, this.pageSize);
-  },
+  }
 };
 </script>
 

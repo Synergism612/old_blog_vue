@@ -5,23 +5,20 @@
       <div class="form_background">
         <b>登录</b>
         <el-form
-          :model="ruleForm"
+          :model="logForm"
           :rules="rules"
-          ref="ruleForm"
+          ref="logForm"
           label-width="0px"
           class="from demo-ruleForm"
         >
           <el-form-item prop="phone" class="item">
             <p class="input">账号</p>
-            <el-input
-              v-model="ruleForm.phone"
-              placeholder="请输入账号"
-            ></el-input>
+            <el-input v-model="logForm.phone" placeholder="请输入账号"></el-input>
           </el-form-item>
           <el-form-item prop="password" class="item">
             <p class="input">密码</p>
             <el-input
-              v-model="ruleForm.password"
+              v-model="logForm.password"
               placeholder="请输入密码"
               type="password"
             ></el-input>
@@ -32,11 +29,7 @@
             <el-link href="" target="_blank" class="link">注册账号</el-link>
           </el-form-item>
           <el-form-item>
-            <el-button
-              type="primary"
-              @click="submitForm('ruleForm')"
-              class="button"
-            >
+            <el-button type="primary" @click="submitForm('logForm')" class="button">
               登录
             </el-button>
           </el-form-item>
@@ -47,35 +40,31 @@
 </template>
 
 <script>
-import Header from "../components/Header";
+import Header from '../components/Header';
 
 export default {
-  
   components: { Header },
   data() {
     return {
-      ruleForm: {
-        phone: "",
-        password: "",
+      logForm: {
+        phone: '',
+        password: ''
       },
       rules: {
-        phone: [{ required: true, message: "请输入账号", trigger: "blur" }],
-        password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-      },
+        phone: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+      }
     };
   },
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          if (
-            this.$store.state.token != "" &&
-            this.$store.state.token != null
-          ) {
+          if (this.$store.state.token != '' && this.$store.state.token != null) {
             this.$notify.error({
-              title: "错误",
-              message: this.$store.getters.getUser.name + "  您已登录",
-              offset: 100,
+              title: '错误',
+              message: this.$store.getters.getUser.name + '  您已登录',
+              offset: 100
             });
             return false;
           }
@@ -83,18 +72,18 @@ export default {
           const _this = this;
           //使用axios.post发送请求，参数为url和发送的数据
           this.axios
-            .post("/login", this.ruleForm)
+            .post('/login', this.logForm)
             .then((res) => {
               console.log(res);
               //登录成功时获取jwt令牌
-              const jwt = res.headers["authorization"];
+              const jwt = res.headers['authorization'];
               const userInfo = res.data.data;
               // console.log(jwt);
               // console.log(userInfo);
               //想让这些数据在所有组件中被使用需要在store中进行配置
               //然后需要将这些数据共享到store中
-              _this.$store.commit("SET_TOKEN", jwt);
-              _this.$store.commit("SET_USERINFO", userInfo);
+              _this.$store.commit('SET_TOKEN', jwt);
+              _this.$store.commit('SET_USERINFO', userInfo);
 
               // console.log(sessionStorage.getItem("userInfo"));
 
@@ -102,12 +91,12 @@ export default {
               // console.log(_this.$store.getters.getUser);
 
               //完成后应该跳转到列表页面
-              _this.$router.push("/blog/index");
+              _this.$router.push('/blog/index');
               this.$notify({
-                title: "成功",
-                message: "欢迎回来" + "   " + res.data.data.name,
-                type: "success",
-                offset: 100,
+                title: '成功',
+                message: '欢迎回来' + '   ' + res.data.data.name,
+                type: 'success',
+                offset: 100
               });
             })
             .catch((err) => {
@@ -115,12 +104,12 @@ export default {
               err;
             });
         } else {
-          console.log("error submit!!");
+          console.log('error submit!!');
           return false;
         }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -164,10 +153,6 @@ export default {
   width: 20em !important;
   margin: auto !important;
 }
-.el-form-item__error{
-  top: 65% !important;
-  left: 75% !important;
-}
 .input {
   float: left;
   margin-top: 0.2em;
@@ -194,5 +179,11 @@ export default {
 }
 .button:hover {
   background-color: #2d6e8a !important;
+}
+</style>
+<style>
+.el-form-item__error {
+  top: 65% !important;
+  left: 75% !important;
 }
 </style>

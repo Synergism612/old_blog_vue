@@ -2,11 +2,7 @@
   <div>
     <el-backtop class="backtop">
       <el-tooltip effect="dark" content="回到顶部" placement="right">
-        <font-awesome-icon
-          :icon="['fas', 'arrow-up']"
-          class="backtop_icon"
-          size="1x"
-        />
+        <font-awesome-icon :icon="['fas', 'arrow-up']" class="backtop_icon" size="1x" />
       </el-tooltip>
     </el-backtop>
   </div>
@@ -18,7 +14,7 @@ export default {
     return {};
   },
   methods: {},
-  created() {},
+  created() {}
 };
 </script>
 

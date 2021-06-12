@@ -7,10 +7,7 @@
       <el-container>
         <el-header class="header">
           <el-col :span="24">
-            <transition
-              appear
-              appear-active-class="animate__animated animate__zoomIn"
-            >
+            <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
                   <el-breadcrumb-item :to="{ path: '/blog/index' }">
@@ -38,19 +35,18 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Backtop from "../components/Backtop";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Backtop from '../components/Backtop';
 // import Model from "../model/timelineModel";
 
 export default {
-  
   components: { Header, Footer, Backtop },
   data() {
     return {};
   },
   methods: {},
-  created() {},
+  created() {}
 };
 </script>
 

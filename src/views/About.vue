@@ -7,10 +7,7 @@
       <el-container>
         <el-header class="header">
           <el-col :span="24">
-            <transition
-              appear
-              appear-active-class="animate__animated animate__zoomIn"
-            >
+            <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
                   <el-breadcrumb-item :to="{ path: '/blog/index' }">
@@ -38,10 +35,7 @@
                             enter-active-class="animate__animated animate__bounceIn"
                           >
                             <div class="block">
-                              <el-avatar
-                                :size="300"
-                                :src="pageData.aboutIndex.icon"
-                              ></el-avatar>
+                              <el-avatar :size="300" :src="pageData.aboutIndex.icon"></el-avatar>
                             </div>
                           </transition>
                           <transition
@@ -123,10 +117,7 @@
                             enter-active-class="animate__animated animate__bounceIn"
                           >
                             <div class="block">
-                              <el-avatar
-                                :size="300"
-                                :src="pageData.aboutMe.icon"
-                              ></el-avatar>
+                              <el-avatar :size="300" :src="pageData.aboutMe.icon"></el-avatar>
                             </div>
                           </transition>
                           <transition
@@ -214,9 +205,7 @@
                             class="message_new_content"
                           ></el-input>
                           <div class="message_new_link">
-                            <el-link target="_blank" @click="newMessage()"
-                              >提交评论</el-link
-                            >
+                            <el-link target="_blank" @click="newMessage()">提交评论</el-link>
                           </div>
                           <el-divider></el-divider>
                           <transition-group
@@ -230,10 +219,7 @@
                               class="message_for"
                             >
                               <div class="message_icon">
-                                <el-avatar
-                                  :size="50"
-                                  :src="message.authorIcon"
-                                ></el-avatar>
+                                <el-avatar :size="50" :src="message.authorIcon"></el-avatar>
                               </div>
                               <div class="message_name">
                                 {{ message.authorName }}
@@ -267,23 +253,23 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Backtop from "../components/Backtop";
-import Model from "../model/aboutModel";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Backtop from '../components/Backtop';
+import Model from '../model/aboutModel';
 
 export default {
   components: { Header, Footer, Backtop },
   data() {
     return {
-      activeName: "aboutindex",
+      activeName: 'aboutindex',
       aboutindex_show: false,
       aboutme_show: false,
       message_show: false,
-      messageNew: "",
+      messageNew: '',
 
       //封装数据
-      pageData: {},
+      pageData: {}
     };
   },
   methods: {
@@ -292,13 +278,13 @@ export default {
       this.aboutme_show = false;
       this.message_show = false;
 
-      if (tab.name == "aboutindex") {
+      if (tab.name == 'aboutindex') {
         this.aboutindex_show = true;
       }
-      if (tab.name == "aboutme") {
+      if (tab.name == 'aboutme') {
         this.aboutme_show = true;
       }
-      if (tab.name == "message") {
+      if (tab.name == 'message') {
         this.message_show = true;
       }
       event;
@@ -306,15 +292,15 @@ export default {
     about() {
       const _this = this;
       _this.axios
-        .get("/blog/about", {
+        .get('/blog/about', {
           params: {
-            articleId: this.$router.currentRoute.params.id,
-          },
+            articleId: this.$router.currentRoute.params.id
+          }
         })
         .then(({ data }) => {
           // console.log(data);
           // 解析md文件
-          var MardownIt = require("markdown-it");
+          var MardownIt = require('markdown-it');
           var md = new MardownIt();
           this.pageData = new Model(data);
           var about_content;
@@ -329,23 +315,23 @@ export default {
     },
     newMessage() {
       if (this.$store.getters.getUser.phone) {
-        if (this.messageNew != "" && this.messageNew != null) {
+        if (this.messageNew != '' && this.messageNew != null) {
           const _this = this;
           _this.axios
-            .post("add/message", {
+            .post('add/message', {
               userPhone: this.$store.getters.getUser.phone,
               content: this.messageNew,
-              time: new Date(),
+              time: new Date()
             })
             .then((res) => {
               this.message_show = false;
               this.$notify({
                 title: res.data,
-                message: "您的留言已添加",
-                type: "success",
-                offset: 100,
+                message: '您的留言已添加',
+                type: 'success',
+                offset: 100
               });
-              this.messageNew = "";
+              this.messageNew = '';
 
               this.pageData = new Model();
               this.about();
@@ -353,39 +339,39 @@ export default {
             })
             .catch((err) => {
               this.$notify({
-                title: "操作失败",
+                title: '操作失败',
                 message: err.message,
-                type: "warning",
-                offset: 100,
+                type: 'warning',
+                offset: 100
               });
             });
         } else {
           this.$notify({
-            title: "操作失败",
-            message: "请填入内容",
-            type: "warning",
-            offset: 100,
+            title: '操作失败',
+            message: '请填入内容',
+            type: 'warning',
+            offset: 100
           });
         }
       } else {
         this.$notify({
-          title: "操作失败",
-          message: "请先登录",
-          type: "warning",
-          offset: 100,
+          title: '操作失败',
+          message: '请先登录',
+          type: 'warning',
+          offset: 100
         });
       }
-    },
+    }
   },
   created() {
     this.aboutindex_show = true;
     this.pageData = new Model();
     this.about();
-  },
+  }
 };
 </script>
 
-<style scoped >
+<style scoped>
 .about {
   margin: auto;
   border-radius: 0.5em;
@@ -446,7 +432,7 @@ export default {
   box-shadow: 2px 2px 3px -2px rgba(9, 2, 4, 0.8);
 }
 .message_content span::after {
-  content: "";
+  content: '';
   border: 8px solid #ffffff00;
   border-right: 8px solid rgba(192, 192, 192, 0.3);
   position: absolute;
