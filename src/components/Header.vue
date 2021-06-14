@@ -68,7 +68,6 @@ export default {
         })
         .then((res) => {
           _this.$store.commit('REMOVE_INFO');
-          _this.$router.push('/login');
           this.$notify({
             title: res.msg,
             message: this.$createElement('i', { style: 'color: teal' }, '您已退出登录'),
@@ -76,7 +75,7 @@ export default {
             type: 'success',
             offset: 100
           });
-          // console.log(res.data);
+           _this.$router.push('/login');
         })
         .catch((err) => {
           console.error(err);
@@ -86,12 +85,8 @@ export default {
   created() {
     //用来清理store的缓存
     if (this.$store.state.token != '' && this.$store.state.token != null) {
-      // console.log(this.$store.state.token);
-      // console.log(this.$store.state.userInfo);
       this.username = this.$store.getters.getUser.name;
       this.usericon = this.$store.getters.getUser.icons;
-      // console.log(this.$store.getters.getUser.name);
-      // console.log(this.usericon);
       this.haslogin = true;
     } else {
       this.haslogin = false;
@@ -102,9 +97,6 @@ export default {
 
 <style scoped>
 .menu {
-  /* padding-left: 25em; */
-  /* padding-right: 25em; */
-  /* max-width: 1110px; */
   width: 100%;
   display: flex;
   flex-direction: row;

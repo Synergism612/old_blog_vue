@@ -5,6 +5,9 @@ import axios from 'axios'
 //引入Element-ui
 import Element from 'element-ui'
 
+//请求时附带session
+axios.defaults.withCredentials = true
+
 //请求前缀
 axios.defaults.baseURL = "http://localhost:8088"
 
@@ -50,7 +53,7 @@ axios.interceptors.response.use(response => {
     //添加弹窗并设置过期时间单位毫秒
     Element.Notification.error({
       title: "错误",
-      message: "请求错误",
+      message: error.message,
       offset: 70
     })
 

@@ -91,7 +91,7 @@ export default {
               // console.log(_this.$store.getters.getUser);
 
               //完成后应该跳转到列表页面
-              _this.$router.push('/blog/index');
+              _this.$router.push('/user/index');
               this.$notify({
                 title: '成功',
                 message: '欢迎回来' + '   ' + res.data.data.name,

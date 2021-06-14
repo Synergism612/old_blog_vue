@@ -48,7 +48,7 @@
           </el-row>
 
           <el-form-item>
-            <el-button type="primary" @click="submitForm(regForm)" class="button">
+            <el-button type="primary" @click="submitForm()" class="button">
               注册
             </el-button>
           </el-form-item>
@@ -68,7 +68,7 @@ export default {
       if (value === '') {
         callback(new Error('请输入手机号'));
       } else {
-        if (value.size != 10) {
+        if (value < 9999999999) {
           console.log(value);
           callback(new Error('请输入11位手机号'));
         }
@@ -114,11 +114,49 @@ export default {
   },
   methods: {
     getcaptcha() {
-      console.log('sdfd');
       this.captcha = '';
       this.captcha = this.axios.defaults.baseURL + '/captcha/' + Date.now();
     },
-    submitForm() {}
+    verify() {
+      if (this.regForm.code == '') {
+        this.$notify({
+          title: '操作失败',
+          message: '请输入验证码',
+          type: 'warning',
+          offset: 100
+        });
+        return false;
+      }
+      const _this = this;
+      _this.axios
+        .post('/checkable/' + this.regForm.code)
+        .then((res) => {
+          if (res.code == 200) {
+            return true;
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          return false;
+        });
+    },
+    submitForm() {
+      this.verify();
+      const _this = this;
+      _this.axios
+        .post('/register', _this.regForm)
+        .then(({ data }) => {
+          this.$notify({
+            title: data,
+            type: 'success',
+            offset: 100
+          });
+          _this.$router.push('/login');
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   },
   created() {
     this.captcha = this.axios.defaults.baseURL + '/captcha/' + Date.now();
