@@ -26,7 +26,7 @@
           <el-form-item>
             <el-link href="" target="_blank" class="link">忘记密码</el-link>
 
-            <el-link href="" target="_blank" class="link">注册账号</el-link>
+            <el-link href="/register" target="_blank" class="link">注册账号</el-link>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm('logForm')" class="button">

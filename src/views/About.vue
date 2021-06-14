@@ -380,15 +380,6 @@ export default {
 .about_title {
   text-align: center;
 }
-.el-tabs__item.is-active {
-  color: black !important;
-}
-.el-tabs__item:hover {
-  color: black !important;
-}
-.el-tabs__active-bar {
-  background-color: black !important;
-}
 .about_title {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
@@ -467,5 +458,16 @@ export default {
 .message_line {
   margin-top: 1em !important;
   margin-bottom: 0.5em !important;
+}
+</style>
+<style>
+.el-tabs__item.is-active {
+  color: black !important;
+}
+.el-tabs__item:hover {
+  color: black !important;
+}
+.el-tabs__active-bar {
+  background-color: black !important;
 }
 </style>
