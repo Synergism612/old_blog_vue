@@ -10,7 +10,7 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/blog/index' }">
+                  <el-breadcrumb-item :to="{ path: '/api/index' }">
                     首页
                   </el-breadcrumb-item>
                   <el-breadcrumb-item> 资源分享 </el-breadcrumb-item>

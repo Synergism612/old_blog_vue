@@ -63,7 +63,7 @@ export default {
           if (this.$store.state.token != '' && this.$store.state.token != null) {
             this.$notify.error({
               title: '错误',
-              message: this.$store.getters.getUser.name + '  您已登录',
+              message: this.$store.getters.getUser.name + ' 您已登录',
               offset: 100
             });
             return false;
@@ -71,25 +71,17 @@ export default {
           //调用请求之前的this
           const _this = this;
           //使用axios.post发送请求，参数为url和发送的数据
-          this.axios
+          _this.axios
             .post('/login', this.logForm)
             .then((res) => {
               console.log(res);
               //登录成功时获取jwt令牌
               const jwt = res.headers['authorization'];
               const userInfo = res.data.data;
-              // console.log(jwt);
-              // console.log(userInfo);
               //想让这些数据在所有组件中被使用需要在store中进行配置
               //然后需要将这些数据共享到store中
               _this.$store.commit('SET_TOKEN', jwt);
               _this.$store.commit('SET_USERINFO', userInfo);
-
-              // console.log(sessionStorage.getItem("userInfo"));
-
-              //测试能否从store获取
-              // console.log(_this.$store.getters.getUser);
-
               //完成后应该跳转到列表页面
               _this.$router.push('/user/index');
               this.$notify({
@@ -100,8 +92,7 @@ export default {
               });
             })
             .catch((err) => {
-              // console.log(err);
-              err;
+              console.log(err);
             });
         } else {
           console.log('error submit!!');

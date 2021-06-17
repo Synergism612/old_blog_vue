@@ -10,7 +10,7 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/blog/index' }">
+                  <el-breadcrumb-item :to="{ path: '/api/index' }">
                     首页
                   </el-breadcrumb-item>
                   <el-breadcrumb-item> 文章管理 </el-breadcrumb-item>
@@ -196,7 +196,7 @@ export default {
       var searchContent = _this.search;
       this.blog_show = false;
       _this.axios
-        .get('/blog/search', {
+        .get('/api/search', {
           params: {
             searchContent: searchContent
           }
@@ -222,6 +222,7 @@ export default {
                 offset: 100
               });
             } else {
+              console.log(res);
               this.$notify({
                 title: '搜索成功',
                 message: '为您搜索到有关“' + this.search + '”的文章' + this.pageData.total + '篇',
@@ -248,7 +249,7 @@ export default {
       this.blog_show = false;
       const _this = this;
       _this.axios
-        .get('/blog/search/type', {
+        .get('/api/search/type', {
           params: {
             typeContent: typeContent
           }
@@ -278,7 +279,7 @@ export default {
       this.blog_show = false;
       const _this = this;
       _this.axios
-        .get('/blog/search/tag', {
+        .get('/api/search/tag', {
           params: {
             tagName: tagName
           }
@@ -307,7 +308,7 @@ export default {
     page(currentPage, pageSize) {
       const _this = this;
       _this.axios
-        .get('/blog/category', {
+        .get('/api/category', {
           params: {
             currentPage: currentPage,
             pageSize: pageSize

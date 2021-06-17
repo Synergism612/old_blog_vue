@@ -10,7 +10,7 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/blog/index' }">
+                  <el-breadcrumb-item :to="{ path: '/api/index' }">
                     首页
                   </el-breadcrumb-item>
                   <el-breadcrumb-item> 关于 </el-breadcrumb-item>
@@ -290,7 +290,7 @@ export default {
     about() {
       const _this = this;
       _this.axios
-        .get('/blog/about', {
+        .get('/api/about', {
           params: {
             articleId: this.$router.currentRoute.params.id
           }
@@ -316,7 +316,7 @@ export default {
         if (this.messageNew != '' && this.messageNew != null) {
           const _this = this;
           _this.axios
-            .post('add/message', {
+            .post('blog/message', {
               userPhone: this.$store.getters.getUser.phone,
               content: this.messageNew,
               time: new Date()

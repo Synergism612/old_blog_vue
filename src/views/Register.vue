@@ -159,7 +159,7 @@ export default {
     }
   },
   created() {
-    this.captcha = this.axios.defaults.baseURL + '/captcha/' + Date.now();
+    this.getcaptcha()
   }
 };
 </script>

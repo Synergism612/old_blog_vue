@@ -9,6 +9,7 @@ import Resoutce from '../views/Resource.vue'
 import Timeline from '../views/Timeline.vue'
 import About from '../views/About.vue'
 import Register from '../views/Register.vue'
+import User from '../views/User.vue'
 
 Vue.use(VueRouter)
 
@@ -63,6 +64,11 @@ const routes = [{
     path: '/user/about',
     name: 'About',
     component: About,
+  },
+  {
+    path: '/user',
+    name: 'User',
+    component: User,
   },
 ]
 

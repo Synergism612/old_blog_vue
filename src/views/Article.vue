@@ -10,10 +10,10 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/blog/index' }">
+                  <el-breadcrumb-item :to="{ path: '/api/index' }">
                     首页
                   </el-breadcrumb-item>
-                  <el-breadcrumb-item :to="{ path: '/blog/category' }">
+                  <el-breadcrumb-item :to="{ path: '/api/category' }">
                     文章管理
                   </el-breadcrumb-item>
                   <el-breadcrumb-item>
@@ -44,9 +44,6 @@
                       class="type_content details_type"
                       @click="searchTagAndType('type', pageData.blog.typeList[0].content)"
                     >
-                      <!-- 因为,子组件create之时, props里的数据还没有读取, 此时渲染引擎监测到数据的绑定, 
-                    去寻找数据, 就会报错. 很快的组件初始化到了mount阶段,此时已经可以读取到props了,
-                    所以通过绑定系统,把数据渲染出来了 -->
                       {{ pageData.blog.typeList ? pageData.blog.typeList[0].content : '' }}
                     </span>
                     <font-awesome-icon :icon="['fas', 'tag']" class="tag_icon" />
@@ -164,13 +161,14 @@ export default {
       this.comments = {};
       const _this = this;
       _this.axios
-        .get('/blog/article/' + this.$router.currentRoute.params.id)
+        .get('/api/article/' + this.$router.currentRoute.params.id)
         .then(({ data }) => {
           // 解析md文件
           var MardownIt = require('markdown-it');
           var md = new MardownIt();
           var result = md.render(data.blogArticleDetail.content);
           this.pageData = new Model(data, result);
+          this.lookNumber();
         })
         .catch((err) => {
           console.error(err);
@@ -199,7 +197,7 @@ export default {
         if (this.commentNew != '' && this.commentNew != null) {
           const _this = this;
           _this.axios
-            .post('add/comment', {
+            .post('blog/comment', {
               userPhone: this.$store.getters.getUser.phone,
               content: this.commentNew,
               articleId: this.pageData.blog.id,
@@ -239,6 +237,16 @@ export default {
           offset: 100
         });
       }
+    },
+    lookNumber(){
+      const _this = this;
+      _this.axios.patch('/api/article/'+this.pageData.blog.id+'/'+this.pageData.blog.viewsNumber)
+      .then(res => {
+        res;
+      })
+      .catch(err => {
+        console.error(err); 
+      })
     }
   },
   created() {

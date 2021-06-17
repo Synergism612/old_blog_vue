@@ -301,7 +301,7 @@ export default {
     page(currentPage, pageSize) {
       const _this = this;
       _this.axios
-        .get('/blog/index', {
+        .get('/api/index', {
           params: {
             currentPage: currentPage,
             pageSize: pageSize

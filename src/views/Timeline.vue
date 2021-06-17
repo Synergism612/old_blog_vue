@@ -10,7 +10,7 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/blog/index' }">
+                  <el-breadcrumb-item :to="{ path: '/api/index' }">
                     首页
                   </el-breadcrumb-item>
                   <el-breadcrumb-item> 点点滴滴 </el-breadcrumb-item>
@@ -73,7 +73,7 @@ export default {
     timeline() {
       const _this = this;
       _this.axios
-        .get('/blog/timeline')
+        .get('/api/timeline')
         .then(({ data }) => {
           this.pageData = new Model(data);
         })

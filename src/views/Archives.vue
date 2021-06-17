@@ -10,7 +10,7 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/blog/index' }">
+                  <el-breadcrumb-item :to="{ path: '/api/index' }">
                     首页
                   </el-breadcrumb-item>
                   <el-breadcrumb-item> 归档 </el-breadcrumb-item>
@@ -95,7 +95,7 @@ export default {
       this.pageData = new Model();
       const _this = this;
       _this.axios
-        .get('/blog/archives')
+        .get('/api/archives')
         .then(({ data }) => {
           this.pageData = new Model(data);
           this.blogs_show = true;
@@ -109,7 +109,7 @@ export default {
       this.pageData.blogs = null;
       const _this = this;
       _this.axios
-        .get('/blog/archives')
+        .get('/api/archives')
         .then(({ data }) => {
           this.pageData = new Model(data, this.pageData.timesList.indexOf(time));
           this.$notify({

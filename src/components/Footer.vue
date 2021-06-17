@@ -22,7 +22,7 @@ export default {
 .footer {
   width: 100%;
   height: 100%;
-  background-color: #272a34;
+  background-color: rgba(84, 92, 100, 1);
   position: relative;
   color: rgba(200, 210, 210, 1);
   min-height: 2.8em;

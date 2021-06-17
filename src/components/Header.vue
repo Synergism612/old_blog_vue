@@ -30,8 +30,8 @@
             <el-avatar style="width: 40px" shape="square" :src="usericon" :fit="fit"></el-avatar>
             {{ this.username }}
           </template>
-          <el-menu-item index="2-1">基本资料</el-menu-item>
-          <el-menu-item index="2-2">安全设置</el-menu-item>
+          <el-menu-item index="/user">基本资料</el-menu-item>
+          <el-menu-item index="/user">安全设置</el-menu-item>
           <el-menu-item @click="logout()">退出登录</el-menu-item>
         </el-submenu>
 
@@ -75,7 +75,7 @@ export default {
             type: 'success',
             offset: 100
           });
-           _this.$router.push('/login');
+          _this.$router.push('/login');
         })
         .catch((err) => {
           console.error(err);
