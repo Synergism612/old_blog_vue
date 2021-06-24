@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="category_box">
     <div class="background"></div>
     <Header></Header>
     <Backtop></Backtop>
@@ -169,10 +169,10 @@
 </template>
 
 <script>
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Backtop from '../components/Backtop';
-import Model from '../model/categoryModel';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Backtop from '../../components/Backtop';
+import Model from '../../model/categoryModel';
 
 export default {
   components: { Header, Footer, Backtop },
@@ -357,70 +357,6 @@ export default {
 };
 </script>
 
-<style scoped>
-.classify {
-  position: relative;
-  border-radius: 0.5em;
-  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
-  padding: 0.8em;
-  margin-bottom: 1em;
-  text-align: left;
-  height: 100%;
-}
-.classify_title {
-  text-align: center;
-}
-.classify_content {
-  margin: 0;
-  padding: 0.3em;
-}
-.classify_content_tag {
-  width: 48%;
-  margin: 0.2em;
-  text-align: center;
-  border: solid 1px rgba(200, 200, 200, 1) !important;
-  box-shadow: 0 2px 5px -1px rgba(200, 200, 200, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  color: black !important;
-}
-.classify_content_tag:hover {
-  transform: scale(1.05, 1.05);
-  box-shadow: 0 5px 7px -1px rgba(192, 192, 192, 1);
-  cursor: pointer;
-}
-.tags {
-  position: relative;
-  border-radius: 0.5em;
-  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
-  padding: 0.8em;
-  margin-bottom: 1em;
-  text-align: left;
-  height: 100%;
-}
-.tags_title {
-  text-align: center;
-}
-.tags_content {
-  margin: 0;
-  padding: 0.3em;
-}
-.tags_content_tag {
-  width: 48%;
-  margin: 0.2em;
-  text-align: center;
-  border: solid 1px rgba(200, 200, 200, 1) !important;
-  box-shadow: 0 2px 5px -1px rgba(200, 200, 200, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  color: black !important;
-}
-.tags_content_tag:hover {
-  transform: scale(1.05, 1.05);
-  box-shadow: 0 5px 7px -1px rgba(192, 192, 192, 1);
-  cursor: pointer;
-}
-.el-link.el-link--default:after,
-.el-link.el-link--primary.is-underline:hover:after,
-.el-link.el-link--primary:after {
-  border-color: black !important;
-}
+<style lang='less' scoped>
+@import url(./Category);
 </style>

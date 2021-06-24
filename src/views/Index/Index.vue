@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index_box">
     <div class="background"></div>
     <Header></Header>
     <Backtop></Backtop>
@@ -276,10 +276,10 @@
 </template>
 
 <script>
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Backtop from '../components/Backtop';
-import Model from '../model/indexModel';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Backtop from '../../components/Backtop';
+import Model from '../../model/indexModel';
 
 export default {
   components: { Header, Footer, Backtop },
@@ -332,121 +332,9 @@ export default {
 };
 </script>
 
-<style scoped>
-.notice {
-  margin: auto;
-  border-radius: 0.5em;
-  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
-  padding: 1em;
-  text-align: left;
-}
-.aboutme {
-  position: relative;
-  border-radius: 0.5em;
-  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
-  padding: 0.8em;
-  padding-top: 1.6em;
-  margin-bottom: 1em;
-  text-align: center;
-  height: 20.5em;
-}
-.aboutme_icon {
-}
-.aboutme_name {
-  font-size: 180%;
-  font-family: monospace;
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-}
-.aboutme_note {
-  font-size: 150%;
-  font-family: monospace;
-}
-.aboutme_app_icon {
-  margin-left: 0.2em;
-  margin-right: 0.2em;
-}
-.number:hover {
-  color: #c33327;
-}
-.active {
-  color: rgba(105, 105, 105, 0.8) !important;
-  border: solid 1px rgba(105, 105, 105, 0.8);
-}
-.el-pagination.is-background .btn-next,
-.el-pagination.is-background .btn-prev,
-.el-pagination.is-background .el-pager li {
-  border-radius: 8px !important;
-}
-.version {
-  position: relative;
-  border-radius: 0.5em;
-  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
-  padding: 0.8em;
-  margin-bottom: 1em;
-  text-align: left;
-  height: 100%;
-}
-.version_title {
-  text-align: center;
-  margin-bottom: 1em;
-}
-.el-timeline-item__tail {
-  border-left: 2px solid rgba(192, 192, 192, 0.4) !important;
-}
-.el-timeline-item__node {
-  background-color: rgba(192, 192, 192, 0.9) !important;
-}
-.el-card {
-  background-color: rgba(192, 192, 192, 0.3) !important;
-  box-shadow: 2px 2px 3px -2px rgba(9, 2, 4, 0.8) !important;
-  border: none !important;
-}
-.aboutIndex {
-  position: relative;
-  border-radius: 0.5em;
-  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
-  padding: 0.8em;
-  margin-bottom: 1em;
-  text-align: left;
-  height: 100%;
-}
-.aboutIndex_title {
-  text-align: center;
-}
-.aboutIndex_content {
-  padding: 1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.3em;
-}
-.aboutIndex_content_icon {
-  width: 1em !important;
-  color: rgba(0, 0, 0, 0.6) !important;
-}
-.friendlylink {
-  position: relative;
-  border-radius: 0.5em;
-  box-shadow: 0 2px 5px -1px rgba(9, 2, 4, 0.8);
-  padding: 0.8em;
-  margin-bottom: 1em;
-  text-align: left;
-  height: 100%;
-}
-.friendlylink_title {
-  text-align: center;
-  margin-bottom: 0.5em;
-}
-.friendlylink_content {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-.friendlylink_content_link {
-  margin-right: 1em;
-}
-.el-link.el-link--default:hover {
-  color: black !important;
-}
-.el-pagination.is-background .el-pager li:not(.disabled):hover {
-  color: black !important;
-}
+<style lang='less' scoped>
+@import url(./Index);
+</style>
+<style lang="less">
+@import url(./IndexEL);
 </style>

@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../views/Index.vue'
+import Index from '../views/Index/Index.vue'
 import Login from '../views/Login.vue'
-import Category from '../views/Category.vue'
-import Article from '../views/Article.vue'
-import Archives from '../views/Archives.vue'
-import Resoutce from '../views/Resource.vue'
-import Timeline from '../views/Timeline.vue'
-import About from '../views/About.vue'
+import Category from '../views/Category/Category.vue'
+import Article from '../views/Article/Article.vue'
+import Archives from '../views/Archives/Archives.vue'
+import Resoutce from '../views/Resource/Resource.vue'
+import Timeline from '../views/Timeline/Timeline.vue'
+import About from '../views/About/About.vue'
 import Register from '../views/Register.vue'
-import User from '../views/User.vue'
+import User from '../views/User/User.vue'
 
 Vue.use(VueRouter)
 

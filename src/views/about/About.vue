@@ -370,6 +370,14 @@ export default {
 <style lang='less' scoped>
 @import url(./About);
 </style>
-<style lang='less'>
-@import url(./AboutEL);
+<style>
+.el-tabs__item.is-active {
+  color: black !important;
+}
+.el-tabs__item:hover {
+  color: black !important;
+}
+.el-tabs__active-bar {
+  background-color: black !important;
+}
 </style>

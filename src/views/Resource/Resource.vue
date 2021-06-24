@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="resource_box">
     <div class="background"></div>
     <Header></Header>
     <Backtop></Backtop>
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Backtop from '../components/Backtop';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Backtop from '../../components/Backtop';
 // import Model from "../model/timelineModel";
 
 export default {
@@ -50,8 +50,6 @@ export default {
 };
 </script>
 
-<style scoped>
-.resoutce_title {
-  margin: 2em;
-}
+<style lang='less' scoped>
+@import url(./Resource);
 </style>

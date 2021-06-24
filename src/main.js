@@ -37,6 +37,11 @@ library.add(fas, far, fab)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('font-awesome-layers', FontAwesomeLayers)
 Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
+
+//引入less
+import less from 'less'
+Vue.use(less)
+
 //全局启用moment
 Vue.prototype.moment = Moment
 //启用md编辑器

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="timeline_box">
     <div class="background"></div>
     <Header></Header>
     <Backtop></Backtop>
@@ -56,10 +56,10 @@
 </template>
 
 <script>
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Backtop from '../components/Backtop';
-import Model from '../model/timelineModel';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Backtop from '../../components/Backtop';
+import Model from '../../model/timelineModel';
 
 export default {
   components: { Header, Footer, Backtop },
@@ -89,11 +89,6 @@ export default {
 };
 </script>
 
-<style scoped>
-.timeline_title {
-  margin: 2em;
-}
-.timeline_content {
-  text-align: left;
-}
+<style lang='less' scoped>
+@import url(./Timeline);
 </style>

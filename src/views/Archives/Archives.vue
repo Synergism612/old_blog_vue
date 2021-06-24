@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="archives_box">
     <div class="background"></div>
     <Header></Header>
     <Backtop></Backtop>
@@ -10,9 +10,7 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/api/index' }">
-                    首页
-                  </el-breadcrumb-item>
+                  <el-breadcrumb-item :to="{ path: '/api/index' }"> 首页 </el-breadcrumb-item>
                   <el-breadcrumb-item> 归档 </el-breadcrumb-item>
                 </el-breadcrumb>
               </div>
@@ -75,10 +73,10 @@
 </template>
 
 <script>
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Backtop from '../components/Backtop';
-import Model from '../model/archivesModel';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Backtop from '../../components/Backtop';
+import Model from '../../model/archivesModel';
 
 export default {
   components: { Header, Footer, Backtop },
@@ -132,36 +130,6 @@ export default {
 };
 </script>
 
-<style scoped>
-.archives_timeline {
-  position: relative;
-}
-.archives_title {
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-}
-
-.archives_blog_title {
-  position: absolute;
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.archives_blog_title:hover {
-  transform: scale(1.02, 1.02);
-  cursor: pointer;
-  border-bottom: 1px solid #000000;
-}
-.archives_blog_summarize {
-  position: relative;
-  margin-top: 2em;
-  text-align: justify;
-  text-justify: inter-ideograph;
-  text-indent: 2em;
-}
-.archives_left {
-  text-align: left;
-}
-.archives_right {
-  text-align: left;
-}
+<style lang='less' scoped>
+@import url(./Archives);
 </style>
