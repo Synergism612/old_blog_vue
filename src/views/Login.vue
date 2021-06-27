@@ -1,40 +1,33 @@
 <template>
   <div>
     <Header></Header>
-    <div class="login_background">
-      <div class="form_background">
-        <b>登录</b>
-        <el-form
-          :model="logForm"
-          :rules="rules"
-          ref="logForm"
-          label-width="0px"
-          class="from demo-ruleForm"
-        >
-          <el-form-item prop="phone" class="item">
-            <p class="input">账号</p>
-            <el-input v-model="logForm.phone" placeholder="请输入账号"></el-input>
-          </el-form-item>
-          <el-form-item prop="password" class="item">
-            <p class="input">密码</p>
-            <el-input
-              v-model="logForm.password"
-              placeholder="请输入密码"
-              type="password"
-            ></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-link href="" target="_blank" class="link">忘记密码</el-link>
+    <div class="login_background"></div>
+    <div class="form_background">
+      <b>登录</b>
+      <el-form
+        :model="logForm"
+        :rules="rules"
+        ref="logForm"
+        label-width="0px"
+        class="from demo-ruleForm"
+      >
+        <el-form-item prop="phone" class="item">
+          <p class="input">账号</p>
+          <el-input v-model="logForm.phone" placeholder="请输入手机号"></el-input>
+        </el-form-item>
+        <el-form-item prop="password" class="item">
+          <p class="input">密码</p>
+          <el-input v-model="logForm.password" placeholder="请输入密码" type="password"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-link href="" target="_blank" class="link">忘记密码</el-link>
 
-            <el-link href="/register" target="_blank" class="link">注册账号</el-link>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="submitForm('logForm')" class="button">
-              登录
-            </el-button>
-          </el-form-item>
-        </el-form>
-      </div>
+          <el-link href="/register" target="_blank" class="link">注册账号</el-link>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('logForm')" class="button"> 登录 </el-button>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
@@ -51,13 +44,14 @@ export default {
         password: ''
       },
       rules: {
-        phone: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+        phone: [{ required: true, message: '请输入手机号', trigger: 'blur' }],
         password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
       }
     };
   },
   methods: {
     submitForm(formName) {
+      // this.$store.commit('REMOVE_INFO');
       this.$refs[formName].validate((valid) => {
         if (valid) {
           if (this.$store.state.token != '' && this.$store.state.token != null) {
@@ -74,7 +68,7 @@ export default {
           _this.axios
             .post('/login', this.logForm)
             .then((res) => {
-              console.log(res);
+              // console.log(res);
               //登录成功时获取jwt令牌
               const jwt = res.headers['authorization'];
               const userInfo = res.data.data;
@@ -108,15 +102,17 @@ export default {
 .login_background {
   width: 100%;
   height: 100%;
+  top: 0;
   position: fixed;
   background: url(../assets/images/backgroud-login.png) no-repeat center;
   background-size: cover;
   font-size: 120%;
+  z-index: -1;
 }
 .form_background {
   position: relative;
   color: #158fc5;
-  height: 18em;
+  height: 20em;
   width: 18em;
   margin: 10em auto;
   display: block;

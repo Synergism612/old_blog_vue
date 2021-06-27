@@ -4,26 +4,8 @@
     <Header></Header>
     <Backtop></Backtop>
     <div class="content">
-      <el-container>
-        <el-header class="header">
-          <el-col :span="24">
-            <transition appear appear-active-class="animate__animated animate__zoomIn">
-              <div class="breadcrumb">
-                <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/api/index' }">
-                    首页
-                  </el-breadcrumb-item>
-                  <el-breadcrumb-item> 关于 </el-breadcrumb-item>
-                </el-breadcrumb>
-              </div>
-            </transition>
-          </el-col>
-        </el-header>
-        <el-main>
-          <el-row :gutter="20">
-            <el-col :span="24"> 这是个人信息页 </el-col>
-          </el-row>
-        </el-main>
+      <el-container>  
+        这里写啥啊
       </el-container>
     </div>
     <Footer></Footer>
@@ -48,6 +30,4 @@ export default {
 
 <style lang='less' scoped>
 @import url(./User);
-</style>
-<style lang='less'>
 </style>

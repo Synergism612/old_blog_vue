@@ -7,7 +7,8 @@ import Element from 'element-ui'
 //请求时附带session
 axios.defaults.withCredentials = true
 //请求前缀
-axios.defaults.baseURL = "http://localhost:8088"
+// axios.defaults.baseURL = "http://localhost:8088"
+axios.defaults.baseURL = "http://123.60.219.31:8088"
 
 //后置拦截
 axios.interceptors.response.use(response => {

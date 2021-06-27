@@ -26,18 +26,6 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 //引入moment
 import Moment from 'moment'
-//引入图标库
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {fas} from '@fortawesome/free-solid-svg-icons'
-import {far} from '@fortawesome/free-regular-svg-icons'
-import {fab} from '@fortawesome/free-brands-svg-icons'
-import {FontAwesomeIcon,FontAwesomeLayers,FontAwesomeLayersText} from '@fortawesome/vue-fontawesome'
-//全局启用图标库
-library.add(fas, far, fab)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.component('font-awesome-layers', FontAwesomeLayers)
-Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
-
 //引入less
 import less from 'less'
 Vue.use(less)

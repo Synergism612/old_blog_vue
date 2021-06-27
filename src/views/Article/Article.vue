@@ -10,9 +10,7 @@
             <transition appear appear-active-class="animate__animated animate__zoomIn">
               <div class="breadcrumb">
                 <el-breadcrumb separator=">">
-                  <el-breadcrumb-item :to="{ path: '/api/index' }">
-                    首页
-                  </el-breadcrumb-item>
+                  <el-breadcrumb-item :to="{ path: '/api/index' }"> 首页 </el-breadcrumb-item>
                   <el-breadcrumb-item :to="{ path: '/api/category' }">
                     文章管理
                   </el-breadcrumb-item>
@@ -39,14 +37,14 @@
                     <i class="el-icon-s-custom details_author">
                       {{ pageData.blog.author }}
                     </i>
-                    <font-awesome-icon :icon="['fas', 'folder']" class="type_icon" />
+                    <i class="fas fa-folder"></i>
                     <span
                       class="type_content details_type"
                       @click="searchTagAndType('type', pageData.blog.typeList[0].content)"
                     >
                       {{ pageData.blog.typeList ? pageData.blog.typeList[0].content : '' }}
                     </span>
-                    <font-awesome-icon :icon="['fas', 'tag']" class="tag_icon" />
+                    <i class="fas fa-tag"></i>
                     <span v-for="tag in pageData.blog.tagList" :key="tag.id">
                       <span class="tag_name" @click="searchTagAndType('tag', tag.name)">{{
                         tag.name
@@ -70,12 +68,7 @@
                         class="search_content_input"
                         @keyup.enter.native="search('search')"
                       ></el-input>
-                      <font-awesome-icon
-                        :icon="['fas', 'search']"
-                        class="search_content_icon"
-                        size="1x"
-                        @click="search('search')"
-                      />
+                      <i class="fas fa-search"></i>
                     </div>
                   </div>
                 </transition>
@@ -197,7 +190,7 @@ export default {
         if (this.commentNew != '' && this.commentNew != null) {
           const _this = this;
           _this.axios
-            .post('blog/comment', {
+            .post('api/comment', {
               userPhone: this.$store.getters.getUser.phone,
               content: this.commentNew,
               articleId: this.pageData.blog.id,
@@ -238,15 +231,16 @@ export default {
         });
       }
     },
-    lookNumber(){
+    lookNumber() {
       const _this = this;
-      _this.axios.patch('/api/article/'+this.pageData.blog.id+'/'+this.pageData.blog.viewsNumber)
-      .then(res => {
-        res;
-      })
-      .catch(err => {
-        console.error(err); 
-      })
+      _this.axios
+        .patch('/api/article/' + this.pageData.blog.id + '/' + this.pageData.blog.viewsNumber)
+        .then((res) => {
+          res;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   },
   created() {

@@ -20,7 +20,7 @@
           <i class="el-icon-s-management"></i>文章专栏
         </el-menu-item>
         <el-menu-item index="/user/archives"> <i class="el-icon-s-claim"></i>归档 </el-menu-item>
-        <el-menu-item index="/user/resoutce"> <i class="el-icon-share"></i>资源分享 </el-menu-item>
+        <el-menu-item index="/user/resource"> <i class="el-icon-share"></i>资源分享 </el-menu-item>
         <el-menu-item index="/user/timeline">
           <i class="el-icon-s-promotion"></i>点点滴滴
         </el-menu-item>
@@ -63,7 +63,7 @@ export default {
       _this.axios
         .get('/logout', {
           headers: {
-            Authorization: localStorage.getItem('token')
+            Authorization: sessionStorage.getItem('token')
           }
         })
         .then((res) => {

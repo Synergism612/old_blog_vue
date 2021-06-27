@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class="login_background">
+    <div class="login_background"></div>
       <div class="form_background">
         <b>注册</b>
         <el-form
@@ -55,7 +55,6 @@
         </el-form>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -69,7 +68,7 @@ export default {
         callback(new Error('请输入手机号'));
       } else {
         if (value < 9999999999) {
-          console.log(value);
+          // console.log(value);
           callback(new Error('请输入11位手机号'));
         }
         callback();
@@ -166,17 +165,19 @@ export default {
 
 <style scoped>
 .login_background {
+  top: 0;
   width: 100%;
   height: 100%;
   position: fixed;
   background: url(../assets/images/backgroud-login.png) no-repeat center;
   background-size: cover;
   font-size: 120%;
+  z-index: -1;
 }
 .form_background {
   position: relative;
   color: #158fc5;
-  height: 28em;
+  height: 33em;
   width: 20em;
   margin: 10em auto;
   display: block;

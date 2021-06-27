@@ -1,17 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../views/Index/Index.vue'
-import Login from '../views/Login.vue'
-import Category from '../views/Category/Category.vue'
-import Article from '../views/Article/Article.vue'
-import Archives from '../views/Archives/Archives.vue'
-import Resoutce from '../views/Resource/Resource.vue'
-import Timeline from '../views/Timeline/Timeline.vue'
-import About from '../views/About/About.vue'
-import Register from '../views/Register.vue'
-import User from '../views/User/User.vue'
 
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
+if (!window.VueRouter) Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
@@ -23,58 +14,58 @@ const routes = [{
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: resolve => require(['../views/Login.vue'], resolve)
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: resolve => require(['../views/Register.vue'], resolve)
   },
   {
     path: '/user/index',
     name: 'Index',
-    component: Index
+    component: resolve => require(['../views/Index/Index.vue'], resolve)
   },
   {
     path: '/user/category',
     name: 'Category',
-    component: Category,
+    component: resolve => require(['../views/Category/Category.vue'], resolve)
   },
   {
     path: '/user/article/:id',
     name: 'Article',
-    component: Article,
+    component: resolve => require(['../views/Article/Article.vue'], resolve)
   },
   {
     path: '/user/archives',
     name: 'Archives',
-    component: Archives,
+    component: resolve => require(['../views/Archives/Archives.vue'], resolve)
   },
   {
-    path: '/user/resoutce',
-    name: 'Resoutce',
-    component: Resoutce,
+    path: '/user/resource',
+    name: 'Resource',
+    component: resolve => require(['../views/Resource/Resource.vue'], resolve)
   },
   {
     path: '/user/timeline',
     name: 'Timeline',
-    component: Timeline,
+    component: resolve => require(['../views/Timeline/Timeline.vue'], resolve)
   },
   {
     path: '/user/about',
     name: 'About',
-    component: About,
+    component: resolve => require(['../views/About/About.vue'], resolve)
   },
   {
     path: '/user',
     name: 'User',
-    component: User,
+    component: resolve => require(['../views/User/User.vue'], resolve)
   },
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: '/blog/',
+  base: '/',
   routes
 })
 

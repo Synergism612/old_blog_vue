@@ -72,7 +72,7 @@
                         </i>
                       </div>
                       <div class="type">
-                        <font-awesome-icon :icon="['fas', 'folder']" class="type_icon" />
+                        <i class="fas fa-folder"></i>
                         <span
                           class="type_content"
                           @click="searchTagAndType('type', blog.typeList[0].content)"
@@ -81,7 +81,7 @@
                         </span>
                       </div>
                       <div class="tag">
-                        <font-awesome-icon :icon="['fas', 'tag']" class="tag_icon" />
+                        <i class="fas fa-tag"></i>
                         <span v-for="tag in blog.tagList" :key="tag.id">
                           <span class="tag_name" @click="searchTagAndType('tag', tag.name)">{{
                             tag.name
@@ -131,22 +131,10 @@
                     </div>
                     <el-divider></el-divider>
                     <div class="aboutme_app">
-                      <font-awesome-icon :icon="['fab', 'qq']" size="2x" class="aboutme_app_icon" />
-                      <font-awesome-icon
-                        :icon="['fas', 'comment']"
-                        size="2x"
-                        class="aboutme_app_icon"
-                      />
-                      <font-awesome-icon
-                        :icon="['fab', 'weixin']"
-                        size="2x"
-                        class="aboutme_app_icon"
-                      />
-                      <font-awesome-icon
-                        :icon="['fab', 'github']"
-                        size="2x"
-                        class="aboutme_app_icon"
-                      />
+                      <i class="fab fa-qq"></i>
+                      <i class="fas fa-comment"></i>
+                      <i class="fab fa-weixin"></i>
+                      <i class="fab fa-github"></i>
                     </div>
                   </div>
                 </transition>
@@ -210,38 +198,23 @@
                     <div class="aboutIndex_title">网站信息</div>
                     <div class="aboutIndex_content">
                       <div>
-                        <font-awesome-icon
-                          :icon="['fas', 'file-alt']"
-                          class="aboutIndex_content_icon"
-                        />
+                        <i class="fas fa-file-alt"></i>
                         文章总数：{{ pageData.aboutIndex.articleAmount }} 篇
                       </div>
                       <div>
-                        <font-awesome-icon
-                          :icon="['fas', 'folder']"
-                          class="aboutIndex_content_icon"
-                        />
+                       <i class="fas fa-folder"></i>
                         分类总数：{{ pageData.aboutIndex.typeAmount }} 个
                       </div>
                       <div>
-                        <font-awesome-icon
-                          :icon="['fas', 'tags']"
-                          class="aboutIndex_content_icon"
-                        />
+                        <i class="fas fa-tags"></i>
                         标签总数：{{ pageData.aboutIndex.tagAmount }} 个
                       </div>
                       <div>
-                        <font-awesome-icon
-                          :icon="['fas', 'comments']"
-                          class="aboutIndex_content_icon"
-                        />
+                        <i class="fas fa-comments"></i>
                         留言总数：{{ pageData.aboutIndex.messageAmount }} 条
                       </div>
                       <div>
-                        <font-awesome-icon
-                          :icon="['far', 'comment-dots']"
-                          class="aboutIndex_content_icon"
-                        />
+                        <i class="fas fa-comment-dots"></i>
                         评论总数：{{ pageData.aboutIndex.commentAmount }} 条
                       </div>
                     </div>

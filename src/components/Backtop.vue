@@ -2,7 +2,7 @@
   <div>
     <el-backtop class="backtop">
       <el-tooltip effect="dark" content="回到顶部" placement="right">
-        <font-awesome-icon :icon="['fas', 'arrow-up']" class="backtop_icon" size="1x" />
+        <i class="fas fa-arrow-up"></i>
       </el-tooltip>
     </el-backtop>
   </div>

@@ -22,7 +22,7 @@
         <el-main>
           <el-row :gutter="20">
             <el-col :span="24">
-              <div class="resoutce_title">
+              <div class="resource_title">
                 <h1>暂时没有要分享的</h1>
               </div>
             </el-col>

@@ -59,7 +59,7 @@
                           </i>
                         </div>
                         <div class="type">
-                          <font-awesome-icon :icon="['fas', 'folder']" class="type_icon" />
+                         <i class="fas fa-folder"></i>
                           <span
                             class="type_content"
                             @click="typeSearch(blog.typeList[0].content)"
@@ -67,7 +67,7 @@
                           >
                         </div>
                         <div class="tag">
-                          <font-awesome-icon :icon="['fas', 'tag']" class="tag_icon" />
+                         <i class="fas fa-tag"></i>
                           <span v-for="tag in blog.tagList" :key="tag.id">
                             <span class="tag_name" @click="tagSearch(tag.name)">{{
                               tag.name
@@ -115,12 +115,7 @@
                         class="search_content_input"
                         @keyup.enter.native="query()"
                       ></el-input>
-                      <font-awesome-icon
-                        :icon="['fas', 'search']"
-                        class="search_content_icon"
-                        size="1x"
-                        @click="query()"
-                      />
+                      <i class="fas fa-search"></i>
                     </div>
                   </div>
                 </transition>
@@ -222,7 +217,7 @@ export default {
                 offset: 100
               });
             } else {
-              console.log(res);
+              // console.log(res);
               this.$notify({
                 title: '搜索成功',
                 message: '为您搜索到有关“' + this.search + '”的文章' + this.pageData.total + '篇',

@@ -50,27 +50,11 @@
                             appear-active-class="animate__animated animate__bounceInRight"
                             enter-active-class="animate__animated animate__bounceInRight"
                           >
-                            <div>
-                              <font-awesome-icon
-                                :icon="['fas', 'home']"
-                                class="about_icon"
-                                size="2x"
-                              />
-                              <font-awesome-icon
-                                :icon="['fas', 'file-alt']"
-                                class="about_icon"
-                                size="2x"
-                              />
-                              <font-awesome-icon
-                                :icon="['fas', 'tags']"
-                                class="about_icon"
-                                size="2x"
-                              />
-                              <font-awesome-icon
-                                :icon="['fas', 'hourglass-half']"
-                                class="about_icon"
-                                size="2x"
-                              />
+                            <div class="about_icon">
+                              <i class="fas fa-home"></i>
+                              <i class="fas fa-file-alt"></i>
+                              <i class="fas fa-tags"></i>
+                              <i class="fas fa-hourglass-half"></i>
                             </div>
                           </transition>
                           <el-divider>
@@ -131,27 +115,11 @@
                             appear-active-class="animate__animated animate__bounceInRight"
                             enter-active-class="animate__animated animate__bounceInRight"
                           >
-                            <div>
-                              <font-awesome-icon
-                                :icon="['fab', 'qq']"
-                                size="2x"
-                                class="about_icon"
-                              />
-                              <font-awesome-icon
-                                :icon="['fas', 'envelope']"
-                                size="2x"
-                                class="about_icon"
-                              />
-                              <font-awesome-icon
-                                :icon="['fab', 'weixin']"
-                                size="2x"
-                                class="about_icon"
-                              />
-                              <font-awesome-icon
-                                :icon="['fab', 'github']"
-                                size="2x"
-                                class="about_icon"
-                              />
+                            <div class="about_icon">
+                              <i class="fab fa-qq"></i>
+                              <i class="fas fa-envelope"></i>
+                              <i class="fab fa-weixin"></i>
+                              <i class="fab fa-github"></i>
                             </div>
                           </transition>
                           <el-divider>
@@ -314,7 +282,7 @@ export default {
         if (this.messageNew != '' && this.messageNew != null) {
           const _this = this;
           _this.axios
-            .post('blog/message', {
+            .post('api/message', {
               userPhone: this.$store.getters.getUser.phone,
               content: this.messageNew,
               time: new Date()
