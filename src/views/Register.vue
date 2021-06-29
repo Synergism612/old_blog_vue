@@ -2,59 +2,53 @@
   <div>
     <Header></Header>
     <div class="login_background"></div>
-      <div class="form_background">
-        <b>注册</b>
-        <el-form
-          :model="regForm"
-          :rules="rules"
-          ref="regForm"
-          label-width="0px"
-          class="from demo-ruleForm"
-        >
-          <el-form-item prop="phone" class="item">
-            <p class="input">手机号</p>
-            <el-input
-              oninput="value=value.replace(/[^\d]/g,'')"
-              maxlength="11"
-              v-model.number="regForm.phone"
-              placeholder="请输入手机号"
-            ></el-input>
-          </el-form-item>
-          <el-form-item prop="name" class="item">
-            <p class="input">昵称</p>
-            <el-input maxlength="10" v-model="regForm.name" placeholder="请输入昵称"></el-input>
-          </el-form-item>
-          <el-form-item prop="password" class="item">
-            <p class="input">密码</p>
-            <el-input
-              type="password"
-              v-model="regForm.password"
-              placeholder="请输入密码"
-            ></el-input>
-          </el-form-item>
-          <el-form-item prop="again" class="item">
-            <p class="input">确认密码</p>
-            <el-input type="password" v-model="regForm.again" placeholder="请输入密码"></el-input>
-          </el-form-item>
-          <el-row :gutter="20">
-            <el-col :span="12"
-              ><el-form-item prop="code" class="item">
-                <p class="input">请输入验证码</p>
-                <el-input v-model="regForm.code"></el-input> </el-form-item
-            ></el-col>
-            <el-col :span="12">
-              <img :src="captcha" class="code_img" @click="getcaptcha()" />
-            </el-col>
-          </el-row>
+    <div class="form_background">
+      <b>注册</b>
+      <el-form
+        :model="regForm"
+        :rules="rules"
+        ref="regForm"
+        label-width="0px"
+        class="from demo-ruleForm"
+      >
+        <el-form-item prop="phone" class="item">
+          <p class="input">手机号</p>
+          <el-input
+            oninput="value=value.replace(/[^\d]/g,'')"
+            maxlength="11"
+            v-model.number="regForm.phone"
+            placeholder="请输入手机号"
+          ></el-input>
+        </el-form-item>
+        <el-form-item prop="name" class="item">
+          <p class="input">昵称</p>
+          <el-input maxlength="10" v-model="regForm.name" placeholder="请输入昵称"></el-input>
+        </el-form-item>
+        <el-form-item prop="password" class="item">
+          <p class="input">密码</p>
+          <el-input type="password" v-model="regForm.password" placeholder="请输入密码"></el-input>
+        </el-form-item>
+        <el-form-item prop="again" class="item">
+          <p class="input">确认密码</p>
+          <el-input type="password" v-model="regForm.again" placeholder="请输入密码"></el-input>
+        </el-form-item>
+        <el-row :gutter="20">
+          <el-col :span="12"
+            ><el-form-item prop="code" class="item">
+              <p class="input">请输入验证码</p>
+              <el-input v-model="regForm.code"></el-input> </el-form-item
+          ></el-col>
+          <el-col :span="12">
+            <img :src="captcha" class="code_img" @click="getcaptcha()" />
+          </el-col>
+        </el-row>
 
-          <el-form-item>
-            <el-button type="primary" @click="submitForm()" class="button">
-              注册
-            </el-button>
-          </el-form-item>
-        </el-form>
-      </div>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm()" class="button"> 注册 </el-button>
+        </el-form-item>
+      </el-form>
     </div>
+  </div>
 </template>
 
 <script>
@@ -131,16 +125,27 @@ export default {
         .post('/checkable/' + this.regForm.code)
         .then((res) => {
           if (res.code == 200) {
-            return true;
+            this.phoneRight();
           }
         })
         .catch((err) => {
           console.error(err);
-          return false;
         });
     },
-    submitForm() {
-      this.verify();
+    phoneRight() {
+      const _this = this;
+      _this.axios
+        .get('/register/' + this.regForm.phone)
+        .then((res) => {
+          if (res.code == 200) {
+            this.form();
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
+    form() {
       const _this = this;
       _this.axios
         .post('/register', _this.regForm)
@@ -155,10 +160,13 @@ export default {
         .catch((err) => {
           console.error(err);
         });
+    },
+    submitForm() {
+      this.verify();
     }
   },
   created() {
-    this.getcaptcha()
+    this.getcaptcha();
   }
 };
 </script>

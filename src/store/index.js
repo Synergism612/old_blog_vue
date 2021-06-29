@@ -28,6 +28,10 @@ export default new Vuex.Store({
       state.userInfo = {}
       sessionStorage.setItem("token", '')
       sessionStorage.setItem("userInfo", JSON.stringify(''))
+    },
+    REMOVE_USERINFO: (state) => {
+      state.userInfo = {}
+      sessionStorage.setItem("userInfo", JSON.stringify(''))
     }
   },
   getters: {

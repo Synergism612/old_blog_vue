@@ -7,7 +7,7 @@ import './assets/css/all.css'
 import './assets/css/blogs.css'
 import './assets/css/frame.css'
 import './assets/css/calendar.css'
-import './assets/css/comment.css'
+import './assets/css/comment.less'
 import './assets/css/search.css'
 
 //引入animate.css

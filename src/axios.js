@@ -7,7 +7,9 @@ import Element from 'element-ui'
 //请求时附带session
 axios.defaults.withCredentials = true
 //请求前缀
+// 本地
 // axios.defaults.baseURL = "http://localhost:8088"
+//服务器端
 axios.defaults.baseURL = "http://123.60.219.31:8088"
 
 //后置拦截
@@ -24,7 +26,7 @@ axios.interceptors.response.use(response => {
       Element.Notification.error({
         title: "错误",
         message: response.data.msg,
-        offset: 70
+        offset: 100
       })
       //阻止继续进行
       return Promise.reject(response.data.msg)
@@ -44,7 +46,7 @@ axios.interceptors.response.use(response => {
     Element.Notification.error({
       title: "错误",
       message: error.message,
-      offset: 70
+      offset: 100
     })
     //阻止继续进行
     return Promise.reject(error)

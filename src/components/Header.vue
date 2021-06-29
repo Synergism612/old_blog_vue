@@ -27,11 +27,14 @@
         <el-menu-item index="/user/about"> <i class="el-icon-link"></i>关于本站 </el-menu-item>
         <el-submenu index="7" v-if="haslogin">
           <template slot="title">
-            <el-avatar style="width: 40px" shape="square" :src="usericon" :fit="fit"></el-avatar>
+            <img :src="usericon" />
             {{ this.username }}
           </template>
           <el-menu-item index="/user">基本资料</el-menu-item>
-          <el-menu-item index="/user">安全设置</el-menu-item>
+
+          <el-popover placement="right" title="施工中" width="20" trigger="hover">
+            <el-menu-item slot="reference" index="/user" disabled>安全设置</el-menu-item>
+          </el-popover>
           <el-menu-item @click="logout()">退出登录</el-menu-item>
         </el-submenu>
 
@@ -49,8 +52,7 @@ export default {
       activeIndex: '1',
       haslogin: false,
       username: '没有登录',
-      usericon: '',
-      fit: 'scale-down'
+      usericon: ''
     };
   },
   methods: {
@@ -95,7 +97,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='less' scoped>
+img {
+  width: 50px;
+  height: 50px;
+  object-position: top;
+  border-radius: 10%;
+}
 .menu {
   width: 100%;
   display: flex;

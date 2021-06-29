@@ -87,7 +87,7 @@
                         class="comment_new_content"
                       ></el-input>
                       <div class="comment_new_link">
-                        <el-link target="_blank" @click="newComment()">提交评论</el-link>
+                          <el-link type="info" target="_blank" @click="newComment()">提交评论</el-link>
                       </div>
                     </div>
                   </div>
@@ -98,7 +98,7 @@
                     评论区
                     <div v-for="comment in pageData.comments" :key="comment.id" class="comment_for">
                       <div class="comment_icon">
-                        <el-avatar :size="50" :src="comment.authorIcon"></el-avatar>
+                        <img :src="comment.authorIcon" />
                       </div>
                       <div class="comment_name">
                         {{ comment.authorName }}

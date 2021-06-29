@@ -49,7 +49,6 @@
                           <el-image
                             style="width: 200px; border-radius: 0.5em"
                             :src="blog.cover"
-                            :fit="fit"
                           ></el-image>
                         </div>
                       </router-link>
@@ -120,8 +119,8 @@
               <div class="and">
                 <transition appear appear-active-class="animate__animated animate__jackInTheBox">
                   <div class="aboutme">
-                    <div class="abltme_icon">
-                      <el-avatar :size="150" :src="pageData.aboutme.icon" :fit="fit"></el-avatar>
+                    <div class="aboutme_icon">
+                      <img :src="pageData.aboutme.icon" />
                     </div>
                     <div class="aboutme_name">
                       <b>{{ pageData.aboutme.name }}</b>
@@ -150,7 +149,7 @@
                     最新评论
                     <div v-for="comment in pageData.comments" :key="comment.id" class="comment_for">
                       <div class="comment_icon">
-                        <el-avatar :size="50" :src="comment.authorIcon"></el-avatar>
+                        <img :src="comment.authorIcon" />
                       </div>
                       <div class="comment_name">
                         {{ comment.authorName }}
@@ -202,7 +201,7 @@
                         文章总数：{{ pageData.aboutIndex.articleAmount }} 篇
                       </div>
                       <div>
-                       <i class="fas fa-folder"></i>
+                        <i class="fas fa-folder"></i>
                         分类总数：{{ pageData.aboutIndex.typeAmount }} 个
                       </div>
                       <div>
@@ -226,7 +225,7 @@
                     <div class="friendlylink_title">友情链接</div>
 
                     <div class="friendlylink_content">
-                      <el-link
+                        <el-link type="info"
                         v-for="friendlylink in pageData.friendlylinks"
                         :key="friendlylink.id"
                         :href="friendlylink.link"
@@ -258,7 +257,6 @@ export default {
   components: { Header, Footer, Backtop },
   data() {
     return {
-      fit: 'scale-down',
       calendar: new Date(),
       blog_show: true,
 

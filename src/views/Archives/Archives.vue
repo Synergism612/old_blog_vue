@@ -59,7 +59,7 @@
                 <div class="archives_title">时间列表</div>
                 <el-timeline :reverse="true">
                   <el-timeline-item v-for="times in pageData.timesList" :key="times.id">
-                    <el-link target="_blank" @click="archivesTimes(times)">{{ times }}</el-link>
+                      <el-link type="info" target="_blank" @click="archivesTimes(times)">{{ times }}</el-link>
                   </el-timeline-item>
                 </el-timeline>
               </div>

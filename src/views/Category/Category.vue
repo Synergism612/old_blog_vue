@@ -36,7 +36,6 @@
                             <el-image
                               style="width: 200px; border-radius: 0.5em"
                               :src="blog.cover"
-                              :fit="fit"
                             ></el-image>
                           </div>
                         </router-link>
@@ -173,7 +172,6 @@ export default {
   components: { Header, Footer, Backtop },
   data() {
     return {
-      fit: 'scale-down',
       blog_show: true,
       search: '',
 

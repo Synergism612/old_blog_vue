@@ -32,7 +32,7 @@
                             enter-active-class="animate__animated animate__bounceIn"
                           >
                             <div class="block">
-                              <el-avatar :size="300" :src="pageData.aboutIndex.icon"></el-avatar>
+                              <img :src="pageData.aboutIndex.icon" />
                             </div>
                           </transition>
                           <transition
@@ -97,7 +97,7 @@
                             enter-active-class="animate__animated animate__bounceIn"
                           >
                             <div class="block">
-                              <el-avatar :size="300" :src="pageData.aboutMe.icon"></el-avatar>
+                              <img :src="pageData.aboutMe.icon" />
                             </div>
                           </transition>
                           <transition
@@ -169,7 +169,7 @@
                             class="message_new_content"
                           ></el-input>
                           <div class="message_new_link">
-                            <el-link target="_blank" @click="newMessage()">提交评论</el-link>
+                              <el-link type="info" target="_blank" @click="newMessage()">提交评论</el-link>
                           </div>
                           <el-divider></el-divider>
                           <transition-group
@@ -183,7 +183,7 @@
                               class="message_for"
                             >
                               <div class="message_icon">
-                                <el-avatar :size="50" :src="message.authorIcon"></el-avatar>
+                                 <img :src="message.authorIcon" />
                               </div>
                               <div class="message_name">
                                 {{ message.authorName }}
