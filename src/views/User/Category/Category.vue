@@ -163,10 +163,10 @@
 </template>
 
 <script>
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Backtop from '../../components/Backtop';
-import Model from '../../model/categoryModel';
+import Header from '../../../components/User/Header';
+import Footer from '../../../components/User/Footer';
+import Backtop from '../../../components/User/Backtop';
+import Model from '../../../model/categoryModel';
 
 export default {
   components: { Header, Footer, Backtop },

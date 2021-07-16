@@ -131,10 +131,10 @@
 </template>
 
 <script>
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Backtop from '../../components/Backtop';
-import Model from '../../model/articleModel';
+import Header from '../../../components/User/Header';
+import Footer from '../../../components/User/Footer';
+import Backtop from '../../../components/User/Backtop';
+import Model from '../../../model/articleModel';
 
 import 'github-markdown-css/github-markdown.css';
 

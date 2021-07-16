@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Header from '../components/Header';
+import Header from '../../components/User/Header';
 
 export default {
   components: { Header },
@@ -104,7 +104,7 @@ export default {
   height: 100%;
   top: 0;
   position: fixed;
-  background: url(../assets/images/backgroud-login.png) no-repeat center;
+  background: url(../../assets/images/backgroud-login.png) no-repeat center;
   background-size: cover;
   font-size: 120%;
   z-index: -1;

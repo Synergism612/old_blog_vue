@@ -196,10 +196,10 @@
 </template>
 
 <script>
-import Header from '../../components/Header';
-import Backtop from '../../components/Backtop';
-import { showLoading, hideLoading } from '../../assets/js/loading';
-import Model from '../../model/userModel';
+import Header from '../../../components/User/Header.vue';
+import Backtop from '../../../components/User/Backtop';
+import { showLoading, hideLoading } from '../../../assets/js/loading';
+import Model from '../../../model/userModel';
 
 export default {
   components: { Header, Backtop },

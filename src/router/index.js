@@ -14,52 +14,52 @@ const routes = [{
   {
     path: '/login',
     name: 'Login',
-    component: resolve => require(['../views/Login.vue'], resolve)
+    component: resolve => require(['../views/User/Login.vue'], resolve)
   },
   {
     path: '/register',
     name: 'Register',
-    component: resolve => require(['../views/Register.vue'], resolve)
+    component: resolve => require(['../views/User/Register.vue'], resolve)
   },
   {
     path: '/user/index',
     name: 'Index',
-    component: resolve => require(['../views/Index/Index.vue'], resolve)
+    component: resolve => require(['../views/User/Index/Index.vue'], resolve)
   },
   {
     path: '/user/category',
     name: 'Category',
-    component: resolve => require(['../views/Category/Category.vue'], resolve)
+    component: resolve => require(['../views/User/Category/Category.vue'], resolve)
   },
   {
     path: '/user/article/:id',
     name: 'Article',
-    component: resolve => require(['../views/Article/Article.vue'], resolve)
+    component: resolve => require(['../views/User/Article/Article.vue'], resolve)
   },
   {
     path: '/user/archives',
     name: 'Archives',
-    component: resolve => require(['../views/Archives/Archives.vue'], resolve)
+    component: resolve => require(['../views/User/Archives/Archives.vue'], resolve)
   },
   {
     path: '/user/resource',
     name: 'Resource',
-    component: resolve => require(['../views/Resource/Resource.vue'], resolve)
+    component: resolve => require(['../views/User/Resource/Resource.vue'], resolve)
   },
   {
     path: '/user/timeline',
     name: 'Timeline',
-    component: resolve => require(['../views/Timeline/Timeline.vue'], resolve)
+    component: resolve => require(['../views/User/Timeline/Timeline.vue'], resolve)
   },
   {
     path: '/user/about',
     name: 'About',
-    component: resolve => require(['../views/About/About.vue'], resolve)
+    component: resolve => require(['../views/User/About/About.vue'], resolve)
   },
   {
     path: '/user',
     name: 'User',
-    component: resolve => require(['../views/User/User.vue'], resolve)
+    component: resolve => require(['../views/User/User/User.vue'], resolve)
   },
 ]
 
