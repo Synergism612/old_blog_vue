@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import Header from '../../components/User/Header';
+import Header from '../components/User/Header';
 
 export default {
   components: { Header },
@@ -177,7 +177,7 @@ export default {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: url(../../assets/images/backgroud-login.png) no-repeat center;
+  background: url(../assets/images/backgroud-login.png) no-repeat center;
   background-size: cover;
   font-size: 120%;
   z-index: -1;

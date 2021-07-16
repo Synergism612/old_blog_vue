@@ -1,6 +1,8 @@
 <template>
   <div class="index_box">
-    
+    <div>
+      这里是后台首页
+    </div>
   </div>
 </template>
 
@@ -27,5 +29,5 @@ export default {
 @import url(./Index);
 </style>
 <style lang="less">
-@import url(./IndexEL);
+// @import url(./IndexEL);
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="header_show">
+    <div>
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo menu"
@@ -30,8 +30,8 @@
             <img :src="usericon" />
             {{ this.username }}
           </template>
-          <el-menu-item index="/admin/index">后台管理</el-menu-item>
           <el-menu-item index="/user">基本资料</el-menu-item>
+
           <el-popover placement="right" title="施工中" width="20" trigger="hover">
             <el-menu-item slot="reference" index="/user" disabled>安全设置</el-menu-item>
           </el-popover>
@@ -52,9 +52,7 @@ export default {
       activeIndex: '1',
       haslogin: false,
       username: '没有登录',
-      usericon: '',
-      userstatus: '',
-      header_show: true
+      usericon: ''
     };
   },
   methods: {
@@ -63,7 +61,6 @@ export default {
       keyPath;
     },
     logout() {
-      this.header_show = false;
       const _this = this;
       _this.axios
         .get('/logout', {
@@ -72,7 +69,7 @@ export default {
           }
         })
         .then((res) => {
-          this.$store.commit('REMOVE_INFO');
+          _this.$store.commit('REMOVE_INFO');
           this.$notify({
             title: res.msg,
             message: this.$createElement('i', { style: 'color: teal' }, '您已退出登录'),
@@ -81,10 +78,8 @@ export default {
             offset: 100
           });
           _this.$router.push('/login');
-          this.header_show = true;
         })
         .catch((err) => {
-          this.header_show = true;
           console.error(err);
         });
     }
@@ -94,8 +89,6 @@ export default {
     if (this.$store.state.token != '' && this.$store.state.token != null) {
       this.username = this.$store.getters.getUser.name;
       this.usericon = this.$store.getters.getUser.icons;
-      this.userstatus = this.$store.getters.getUser.status==1?true:false;
-      console.log(this.userstatus);
       this.haslogin = true;
     } else {
       this.haslogin = false;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login_box">
     <Header></Header>
     <div class="login_background"></div>
     <div class="form_background">
@@ -20,9 +20,9 @@
           <el-input v-model="logForm.password" placeholder="请输入密码" type="password"></el-input>
         </el-form-item>
         <el-form-item>
-            <el-link type="info" href="" target="_blank" class="link">忘记密码</el-link>
+          <el-link type="info" href="" target="_blank" class="link">忘记密码</el-link>
 
-            <el-link type="info" href="/register" target="_blank" class="link">注册账号</el-link>
+          <el-link type="info" href="/register" target="_blank" class="link">注册账号</el-link>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('logForm')" class="button"> 登录 </el-button>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Header from '../../components/User/Header';
+import Header from '../components/User/Header';
 
 export default {
   components: { Header },
@@ -98,79 +98,83 @@ export default {
 };
 </script>
 
-<style scoped>
-.login_background {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  position: fixed;
-  background: url(../../assets/images/backgroud-login.png) no-repeat center;
-  background-size: cover;
-  font-size: 120%;
-  z-index: -1;
-}
-.form_background {
-  position: relative;
-  color: #158fc5;
-  height: 20em;
-  width: 18em;
-  margin: 10em auto;
-  display: block;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 1.2em;
-  box-shadow: 0 2px 5px -1px rgb(9 2 4 / 80%);
-  padding: 1em;
-  box-sizing: border-box;
-  transition: 0.5s;
-  /* display: none; */
-  transform: rotateY(0deg);
-}
-.el-form-item__label {
-  color: #158fc5 !important;
-}
-.from {
-  position: relative !important;
-  width: 100% !important;
-  margin: auto;
-}
-.item {
-  margin: 0em !important;
-}
-.el-form-item__content {
-  width: 20em !important;
-  margin: auto !important;
-}
-.input {
-  float: left;
-  margin-top: 0.2em;
-}
-.link {
-  margin: 0 0.5em 0 0.5em;
-}
-.button {
-  margin: 0em !important;
-  height: 2em !important;
-  padding: 0.5em 1.5em !important;
-  box-sizing: content-box !important;
-  min-height: 2em !important;
-  min-width: 6em !important;
-  border-radius: 2em !important;
-  line-height: 1em !important;
-  cursor: pointer !important;
-  transition: background 0.3s !important;
-  text-align: center !important;
-  background-color: #158fc5 !important;
-  color: white !important;
-  border: none !important;
-  outline: none !important;
-}
-.button:hover {
-  background-color: #2d6e8a !important;
+<style lang='less' scoped>
+.login_box {
+  .login_background {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: fixed;
+    background: url(../assets/images/backgroud-login.png) no-repeat center;
+    background-size: cover;
+    font-size: 120%;
+    z-index: -1;
+  }
+  .form_background {
+    position: relative;
+    color: #158fc5;
+    height: 20em;
+    width: 18em;
+    margin: 10em auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1.2em;
+    box-shadow: 0 2px 5px -1px rgb(9 2 4 / 80%);
+    padding: 1em;
+    box-sizing: border-box;
+    transition: 0.5s;
+    /* display: none; */
+    transform: rotateY(0deg);
+  }
+  .el-form-item__label {
+    color: #158fc5 !important;
+  }
+  .from {
+    position: relative !important;
+    width: 100% !important;
+    margin: auto;
+  }
+  .item {
+    margin: 0em !important;
+  }
+  .el-form-item__content {
+    width: 20em !important;
+    margin: auto !important;
+  }
+  .input {
+    float: left;
+    margin-top: 0.2em;
+  }
+  .link {
+    margin: 0 0.5em 0 0.5em;
+  }
+  .button {
+    margin: 0em !important;
+    height: 2em !important;
+    padding: 0.5em 1.5em !important;
+    box-sizing: content-box !important;
+    min-height: 2em !important;
+    min-width: 6em !important;
+    border-radius: 2em !important;
+    line-height: 1em !important;
+    cursor: pointer !important;
+    transition: background 0.3s !important;
+    text-align: center !important;
+    background-color: #158fc5 !important;
+    color: white !important;
+    border: none !important;
+    outline: none !important;
+  }
+  .button:hover {
+    background-color: #2d6e8a !important;
+  }
 }
 </style>
-<style>
-.el-form-item__error {
-  top: 65% !important;
-  left: 75% !important;
+<style lang='less'>
+.login_box {
+  .el-form-item__error {
+    top: 65% !important;
+    left: 70% !important;
+  }
 }
 </style>
