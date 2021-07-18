@@ -18,6 +18,20 @@ axios.interceptors.response.use(response => {
     if (response.config.url == '/login') {
       return response
     }
+    if (response.config.url.concat('admin')) {
+      if (res.code === 200) {
+        // console.log(response);
+        return response.data
+      } else {
+        Element.Notification.error({
+          title: "错误",
+          message: "您没有权限",
+          offset: 100
+        })
+        //阻止继续进行
+        return Promise.reject(response.data.msg)
+      }
+    }
     //如果res的code不为200说明出现异常了，我们需要对异常进行处理
     if (res.code === 200) {
       // console.log(response);

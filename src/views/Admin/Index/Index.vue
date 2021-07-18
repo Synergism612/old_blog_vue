@@ -1,8 +1,6 @@
 <template>
   <div class="index_box">
-    <div>
-      这里是后台首页
-    </div>
+    <div>这里是后台首页</div>
   </div>
 </template>
 
@@ -20,8 +18,29 @@ export default {
       pageData: {}
     };
   },
-  methods: {},
-  created() {}
+  methods: {
+    index() {
+      const _this = this;
+      _this.axios
+        .get('api/admin', {
+          headers: {
+            Authorization: sessionStorage.getItem('token')
+          }
+        })
+        .then(({ data }) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          console.error(err);
+          this.$router.push({
+            name: `Index`
+          });
+        });
+    }
+  },
+  created() {
+    this.index();
+  }
 };
 </script>
 

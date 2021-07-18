@@ -30,7 +30,7 @@
             <img :src="usericon" />
             {{ this.username }}
           </template>
-          <el-menu-item index="/admin/index">后台管理</el-menu-item>
+          <el-menu-item index="/admin/index" v-if="userstatus">后台管理</el-menu-item>
           <el-menu-item index="/user">基本资料</el-menu-item>
           <el-popover placement="right" title="施工中" width="20" trigger="hover">
             <el-menu-item slot="reference" index="/user" disabled>安全设置</el-menu-item>
@@ -95,7 +95,6 @@ export default {
       this.username = this.$store.getters.getUser.name;
       this.usericon = this.$store.getters.getUser.icons;
       this.userstatus = this.$store.getters.getUser.status==1?true:false;
-      console.log(this.userstatus);
       this.haslogin = true;
     } else {
       this.haslogin = false;
